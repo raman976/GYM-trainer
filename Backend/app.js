@@ -1,0 +1,23 @@
+const express = require("express");
+require("dotenv").config();
+const mongoose = require("mongoose");
+const app = express();
+const authRoutes = require("./Routes/Auth");
+app.use(express.json());
+app.use("/auth", authRoutes);
+async function connectDB() {
+  try {
+    await mongoose.connect(process.env.URI);
+    console.log("MongoDB connected");
+  } catch (error) {
+    console.error("MongoDB connection error:", error);
+  }
+}
+app.use("/", (req, res, next) => {
+  res.status(200).json({
+    message: "the server is working",
+  });
+});
+connectDB();
+app.use(express.json());
+module.exports = app;
