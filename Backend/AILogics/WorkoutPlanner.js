@@ -1,7 +1,9 @@
 require("dotenv").config();
+const User=require("../Model/User")
 const WorkoutPlan = require("../Model/Workoutplan");
 const generateWorkoutPlan = async (req, res) => {
   try {
+    const userId = req.user.id;
     const { days, goal, equipment } = req.body;
     const response = await fetch(
       "https://openrouter.ai/api/v1/chat/completions",
@@ -31,20 +33,35 @@ const generateWorkoutPlan = async (req, res) => {
     const data = await response.json();
     const workoutPlanMarkdown = data.choices[0].message.content;
 
-    const newWorkout = new WorkoutPlan({
-    days,
-      goal,
-      equipment,
-      plan: workoutPlanMarkdown, 
-    });
-    await newWorkout.save();
+    let user = await User.findById(userId);
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
 
-    res.status(200).json({
-      success: true,
-      message: "Workout plan generated successfully!",
-      workoutPlan: workoutPlanMarkdown 
-    });
+    if (user.workoutPlanId) {
+      await WorkoutPlan.findByIdAndUpdate(user.workoutPlanId, {
+        plan: workoutPlanMarkdown,
+      });
+      return res
+        .status(200)
+        .json({ message: "Workout plan updated", plan: workoutPlanMarkdown });
+    } else {
+      const newWorkout = new WorkoutPlan({
+        userId,
+        days,
+        goal,
+        equipment,
+        plan: workoutPlanMarkdown,
+      });
+      await newWorkout.save();
 
+      user.workoutPlanId = newWorkout._id;
+      await user.save();
+
+      return res
+        .status(200)
+        .json({ message: "Workout plan created", plan: workoutPlanMarkdown });
+    }
   } catch (error) {
     console.error("Error generating workout:", error);
     res.status(500).json({ success: false, message: "Internal Server Error" });
