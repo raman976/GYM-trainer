@@ -8,7 +8,7 @@ const generateDietPlan=async(req,res)=>{
             {
               method: "POST",
               headers: {
-                Authorization: `Bearer ${process.env.R10}`,
+                "Authorization": `Bearer ${process.env.R10.trim()}`,
                 "Content-Type": "application/json",
               },
               body: JSON.stringify({
@@ -27,8 +27,10 @@ const generateDietPlan=async(req,res)=>{
               }),
             }
           );
-      
+          console.log("API Key:", process.env.R10);
+
           const data = await response.json();
+          console.log('checking data',data)
           const dietPlanMarkdown = data.choices[0].message.content;
 
         const plan=new DietPlan({

@@ -13,6 +13,10 @@ app.use("/workout", workoutRoutes);
 const dietRoutes=require('./Routes/DietRoutes');
 app.use('/dietplan',dietRoutes)
 
+const bmiRoutes=require('./Routes/BMIRoute')
+app.use('/analyse', bmiRoutes);
+
+
 async function connectDB() {
   try {
     await mongoose.connect(process.env.URI);
