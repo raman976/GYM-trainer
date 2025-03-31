@@ -5,6 +5,14 @@ const app = express();
 const authRoutes = require("./Routes/Auth");
 app.use(express.json());
 app.use("/auth", authRoutes);
+
+const workoutRoutes = require("./Routes/WorkRoutes");
+app.use("/workout", workoutRoutes);
+
+
+const dietRoutes=require('./Routes/DietRoutes');
+app.use('/dietplan',dietRoutes)
+
 async function connectDB() {
   try {
     await mongoose.connect(process.env.URI);
