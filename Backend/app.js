@@ -3,6 +3,14 @@ require("dotenv").config();
 const mongoose = require("mongoose");
 const app = express();
 const authRoutes = require("./Routes/Auth");
+const cors=require("cors");
+app.use(cors({
+  origin: 'http://localhost:5173',  // Frontend origin (where the React app is running)
+  methods: ['GET', 'POST', 'OPTIONS'],  // Allowed methods
+  allowedHeaders: ['Content-Type'],  // Allowed headers
+  preflightContinue: false,
+  optionsSuccessStatus: 204 // For legacy browser support
+}));
 app.use(express.json());
 app.use("/auth", authRoutes);
 
