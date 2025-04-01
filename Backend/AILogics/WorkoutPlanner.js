@@ -68,4 +68,36 @@ const generateWorkoutPlan = async (req, res) => {
   }
 };
 
-module.exports = { generateWorkoutPlan };
+
+const getWorkoutPlan = async (req, res) => {
+  try {
+    const userId = req.user.id;
+
+    const user = await User.findById(userId).populate("workoutPlanId");
+    if (!user) {
+      return res.status(404).json({ success: false, message: "User not found" });
+    }
+
+    if (!user.workoutPlanId) {
+      return res.status(404).json({
+        success: false,
+        message: "No workout plan found for this user",
+      });
+    }
+
+    return res.status(200).json({
+      success: true,
+      message: "Workout plan retrieved successfully",
+      plan: user.workoutPlanId.plan,
+    });
+  } catch (error) {
+    console.error("Error fetching workout plan:", error);
+    return res.status(500).json({
+      success: false,
+      message: "Server error, please try again later",
+    });
+  }
+};
+
+module.exports = { generateWorkoutPlan, getWorkoutPlan };
+

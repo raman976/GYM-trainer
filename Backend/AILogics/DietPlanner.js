@@ -91,12 +91,10 @@ const generateDietPlan = async (req, res) => {
     const userId = req.user.id;
     const { goal, height, weight, preference } = req.body;
 
-    // Validate input
     if (!goal || !height || !weight || !preference) {
       return res.status(400).json({ error: "All fields are required" });
     }
 
-    // Fetch AI-generated diet plan
     const response = await fetch(
       "https://openrouter.ai/api/v1/chat/completions",
       {
@@ -167,7 +165,32 @@ const generateDietPlan = async (req, res) => {
   }
 };
 
-module.exports = { generateDietPlan };
+const getDietPlan = async (req, res) => {
+  try {
+    const userId = req.user.id;
+
+    const user = await User.findById(userId).populate("dietPlanId");
+    if (!user) {
+      return res.status(404).json({ success: false, message: "User not found" });
+    }
+
+    if (!user.dietPlanId) {
+      return res.status(404).json({ success: false, message: "No diet plan found for this user" });
+    }
+
+    return res.status(200).json({
+      success: true,
+      message: "Diet plan retrieved successfully",
+      plan: user.dietPlanId.plan,
+    });
+  } catch (error) {
+    console.error("Error fetching diet plan:", error);
+    return res.status(500).json({ success: false, message: "Server error, please try again" });
+  }
+};
+
+module.exports = { generateDietPlan, getDietPlan };
+
 
 
 
