@@ -1,13 +1,14 @@
 import styled from "styled-components";
-import react from "react";
 import { Link } from "react-router-dom";
 
 export const StyledFeatureSection = styled.div`
   display: grid;
   justify-self: center;
+  width: 75vw;
+  height: 80vh;
   grid-template-rows: repeat(2, 1fr);
   grid-template-columns: repeat(2, 1fr);
-  gap: 40px;
+  gap: 60px;
   padding: 40px;
   background-color: transparent;
 `;
@@ -16,7 +17,6 @@ export const StyledCenteredDiv = styled.div`
   background: black;
   justify-content: center;
   align-items: center;
-  height: 100vh;
   width: 100vw;
 `;
 
@@ -73,4 +73,56 @@ export const StyledCardLeft = styled.div`
   min-height: 120px; 
 `;
 
+export const HeroContainer = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+`;
 
+export const VideoBackground = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  filter: blur(3px) brightness(0.9);
+  transform: scale(1.1); 
+`;
+
+export const Overlay = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+`;
+
+export const TextOverlay = styled.div`
+  position: relative;
+  z-index: 3;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 6rem;
+  color: white;
+  text-align: center;
+`;
+
+
+
+export const StyledFooter = styled.div`
+  background-color: #2e2e2e;
+  width: 100%;
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  padding-left:6%;
+  justify-content: center;
+  align-items: start;
+  margin-top: auto;
+`;

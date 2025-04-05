@@ -1,16 +1,13 @@
 import React from "react";
-import { Link} from "react-router-dom";
 import { StyledCards, StyledCenteredDiv, StyledFeatureSection } from "./StyledDashboard";
 import { StyledCardLeft } from "./StyledDashboard";
+import HeroSection from "./HeroSection";
+import Footer from "./Footer";
 
 const Dashboard = () => {
   return (
-    <>
-      {/* <Link to="/dashboard/dietplanner">Diet Plan</Link>
-      <Link to="/dashboard/workoutplan">Workout Plan</Link>
-      <Link to="/dashboard/bmianalyser">BMI Analyzer</Link>
-      <Link to="/dashboard/exercise">Exercise</Link> */}
-
+    <div style={{ overflowY: "auto", height: "100vh" }}>
+   <HeroSection/> 
       <StyledCenteredDiv>
   <StyledFeatureSection>
     <StyledCards to="/dashboard/dietplanner">
@@ -45,11 +42,11 @@ const Dashboard = () => {
       </div>
     </StyledCards>
   </StyledFeatureSection>
-</StyledCenteredDiv>
+</StyledCenteredDiv> 
 
+<Footer/>
 
-
-    </>
+    </div>
   );
 };
 
