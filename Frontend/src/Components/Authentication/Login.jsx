@@ -1,5 +1,5 @@
 import React from "react";
-import { FormContainer } from "./Form.Styled";
+import { BigContainer, FormContainer, ImageContainer2, PageContainer, StyledButton, StyledInputField, StyledSpan, StyledText } from "./Form.Styled";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useState } from "react";
@@ -36,22 +36,27 @@ const Login = () => {
   }
 
   return (
+    <BigContainer>
+    <PageContainer>
+    <ImageContainer2/>
     <FormContainer onSubmit={handleSubmit}>
-      <input
+      <StyledInputField
         type="email"
         placeholder="enter you registered email"
         onChange={(e) => setEmail(e.target.value)}
       />
-      <input
+      <StyledInputField
         type="password"
         placeholder="enter your password"
         onChange={(e) => setPassword(e.target.value)}
       />
-      <button type="submit">LOGIN</button>
-      <p>
-        Don't have an account? <Link to="/signup">Signup</Link>
-      </p>
+      <StyledButton type="submit">LOGIN</StyledButton>
+      <StyledText>
+        Don't have an account? <Link to="/signup"><StyledSpan>Click to Signup</StyledSpan></Link>
+      </StyledText>
     </FormContainer>
+    </PageContainer>
+    </BigContainer>
   );
 };
 
