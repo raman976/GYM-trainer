@@ -5,7 +5,8 @@ export const StyledFeatureSection = styled.div`
   display: grid;
   justify-self: center;
   width: 75vw;
-  height: 80vh;
+  min-height: 100vh;
+  /* height: 80vh; */
   grid-template-rows: repeat(2, 1fr);
   grid-template-columns: repeat(2, 1fr);
   gap: 60px;
@@ -17,7 +18,8 @@ export const StyledCenteredDiv = styled.div`
   background: black;
   justify-content: center;
   align-items: center;
-  width: 100vw;
+  width: 100%;
+  padding: 40px 0;
 `;
 
 export const StyledCards = styled(Link)`
