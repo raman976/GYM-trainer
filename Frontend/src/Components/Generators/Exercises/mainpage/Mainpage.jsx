@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import SearchBar from "../searchbar/SearchBar";
 import Filterbar from "../filterbar/Filterbar";
 import Card from "./Card";
+import ExerciseModal from "./ExerciseModal";
 import { exercises } from "../ExerciseConstants";
 import { GridWrapper } from "./StyledMainpage";
 
 const Mainpage = () => {
   const [search, setSearch] = useState("");
+  const [selectedExercise, setSelectedExercise] = useState(null);
   const [selectedFilters, setSelectedFilters] = useState([]);
 
   const handleFilterClick = (filter) => {
@@ -38,9 +40,19 @@ const Mainpage = () => {
       />
       <GridWrapper>
         {filteredExercises.map((exercise) => (
-          <Card key={exercise.name} props={exercise} />
+          < Card key={exercise.name} props={exercise} onClick={() => {
+            console.log("Clicked:", exercise.name);
+            setSelectedExercise(exercise)
+            
+            }
+            
+          } />
         ))}
       </GridWrapper>
+      <ExerciseModal
+        exercise={selectedExercise}
+        onClose={() => setSelectedExercise(null)}
+      />
     </div>
   );
 };

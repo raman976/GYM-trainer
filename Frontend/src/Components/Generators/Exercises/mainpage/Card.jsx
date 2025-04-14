@@ -9,7 +9,7 @@ import {
 const Card = (props) => {
   return (
     <div>
-      <StyledCardWrapper key={props.props.id}>
+      <StyledCardWrapper key={props.props.id} onClick={props.onClick}>
         <StyledCardUpperWrapper>
           <StyledCardUpper src={props.props.image} alt={props.props.name} />
         </StyledCardUpperWrapper>
