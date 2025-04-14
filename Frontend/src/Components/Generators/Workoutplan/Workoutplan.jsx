@@ -238,7 +238,10 @@ const WorkoutPlanner = () => {
       setLoading(false);
     }
   }
-
+  // console.log(workoutPlan.plan)
+  // const finaldata = workoutPlan.plan.replace(/\\boxed{([^}]*)}/g, "$1");
+  
+console.log(workoutPlan)
   return (
     <div style={styles.page}>
       <h1 style={styles.heading}>AI-Powered Workout Planner</h1>
@@ -278,7 +281,6 @@ const WorkoutPlanner = () => {
             {loading ? "Generating..." : "Generate Workout Plan"}
           </button>
         </form>
-
         {/* RIGHT: Workout Plan Display */}
         <div style={styles.resultSection}>
           <h2 style={styles.subheading}>
@@ -287,6 +289,7 @@ const WorkoutPlanner = () => {
           {workoutPlan ? (
             <div
               style={styles.planBox}
+              
               dangerouslySetInnerHTML={{
                 __html: marked.parse(workoutPlan.plan, { gfm: true }),
               }}

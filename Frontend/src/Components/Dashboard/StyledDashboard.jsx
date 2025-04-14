@@ -9,7 +9,7 @@ export const StyledFeatureSection = styled.div`
   /* height: 80vh; */
   grid-template-rows: repeat(2, 1fr);
   grid-template-columns: repeat(2, 1fr);
-  gap: 60px;
+  gap: 10px;
   padding: 40px;
   background-color: transparent;
 `;
