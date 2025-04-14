@@ -1,14 +1,24 @@
-import React from 'react'
-
+import React from "react";
+import {
+  StyledCardLower,
+  StyledCardUpperWrapper,
+  StyledCardTitle,
+  StyledCardUpper,
+  StyledCardWrapper,
+} from "./StyledMainpage";
 const Card = (props) => {
   return (
     <div>
-         <div key={props.props.id} style={{border:"1px solid black", margin:"10px", padding:"10px"}}>
-                        <h2>{props.props.name}</h2>
-                        <p>{props.props.description}</p>
-                        <img src={props.props.image} alt={props.props.name} style={{width:"100px", height:"100px"}}/>
-                    </div>
+      <StyledCardWrapper key={props.props.id}>
+        <StyledCardUpperWrapper>
+          <StyledCardUpper src={props.props.image} alt={props.props.name} />
+        </StyledCardUpperWrapper>
+
+        <StyledCardLower>
+          <StyledCardTitle>{props.props.name}</StyledCardTitle>
+        </StyledCardLower>
+      </StyledCardWrapper>
     </div>
-  )
-}
-export default Card
+  );
+};
+export default Card;

@@ -1,22 +1,33 @@
-import React from 'react'
-import { StyledFilterbar,StyledWrapper2 } from './Styledfilterbar'
+import React from "react";
+import { StyledFilterbar, StyledWrapper2 } from "./Styledfilterbar";
 
-const Filterbar = () => {
+const filterOptions = ["Cardio", "Strength", "Yoga", "Flexibility", "Male", "Female"];
+
+const Filterbar = ({ selectedFilters, onFilterClick }) => {
   return (
-    <div>
-        <StyledWrapper2>
-         <StyledFilterbar>
-            <div style={{fontSize:"1em"}}>Cardio</div>
-            <div style={{fontSize:"1em"}}>Strength</div>
-            <div style={{fontSize:"1em"}}>Yoga</div>
-            <div style={{fontSize:"1em"}}>Flexibility</div>
-            <div style={{fontSize:"1em"}}>Male</div>
-            <div style={{fontSize:"1em"}}>Female</div>
-         </StyledFilterbar>
-        </StyledWrapper2>
-       
+    <StyledWrapper2>
+      <StyledFilterbar>
+        {filterOptions.map((filter) => (
+          <div
+            key={filter}
+            onClick={() => onFilterClick(filter)}
+            style={{
+              fontSize: "1em",
+              cursor: "pointer",
+              padding: "0.005rem 0.7rem",
+              borderRadius: "20px",
+              margin: "0.1rem",
+              backgroundColor: selectedFilters.includes(filter) ? "#000" : "#eee",
+              color: selectedFilters.includes(filter) ? "#fff" : "#000",
+              transition: "all 0.2s",
+            }}
+          >
+            {filter}
+          </div>
+        ))}
+      </StyledFilterbar>
+    </StyledWrapper2>
+  );
+};
 
-    </div>
-  )
-}
-export default Filterbar
+export default Filterbar;

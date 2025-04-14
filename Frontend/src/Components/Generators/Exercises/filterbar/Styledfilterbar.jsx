@@ -6,7 +6,7 @@ display: flex;
 flex-wrap: wrap;
 width: 40%;
 font-size: 1em;
-height: 40px;
+height: 7%;
 justify-content: space-between;
 align-items: center;
 flex-direction: row;
