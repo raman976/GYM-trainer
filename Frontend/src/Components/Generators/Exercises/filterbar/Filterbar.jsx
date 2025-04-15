@@ -1,8 +1,15 @@
 import React from "react";
 import { StyledFilterbar, StyledWrapper2 } from "./Styledfilterbar";
 
-const filterOptions = ["Cardio", "Strength", "Yoga", "Flexibility", "Male", "Female"];
-
+const filterOptions = [
+  "Cardio",
+  "Strength",
+  "Yoga",
+  "Flexibility",
+  "Male",
+  "Female",
+];
+//linear-gradient(to right, #423C40, #3A5C60)
 const Filterbar = ({ selectedFilters, onFilterClick }) => {
   return (
     <StyledWrapper2>
@@ -17,8 +24,10 @@ const Filterbar = ({ selectedFilters, onFilterClick }) => {
               padding: "0.005rem 0.7rem",
               borderRadius: "20px",
               margin: "0.1rem",
-              backgroundColor: selectedFilters.includes(filter) ? "#000" : "#eee",
-              color: selectedFilters.includes(filter) ? "#fff" : "#000",
+              background: !selectedFilters.includes(filter)
+                ? "transparent"
+                : "linear-gradient(to right, #423C40, #3A5C60)",
+              color: selectedFilters.includes(filter) ? "black" : "white",
               transition: "all 0.2s",
             }}
           >

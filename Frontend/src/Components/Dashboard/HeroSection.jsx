@@ -3,6 +3,8 @@ import React from "react";
 import ReactPlayer from "react-player";
 import Typewriter from "typewriter-effect";
 import { HeroContainer, VideoBackground, Overlay, TextOverlay } from "./StyledDashboard";
+import { ScrollDownArrow } from "./StyledDashboard";
+
 
 const HeroSection = () => {
   return (
@@ -37,6 +39,17 @@ const HeroSection = () => {
           }}
         />
       </TextOverlay>
+      <ScrollDownArrow>
+  <svg
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    viewBox="0 0 24 24"
+  >
+    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+  </svg>
+</ScrollDownArrow>
+
     </HeroContainer>
   );
 };

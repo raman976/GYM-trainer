@@ -11,7 +11,11 @@ justify-content: space-between;
 align-items: center;
 flex-direction: row;
 padding: 10px 20px;
-background: #F5F5F5;
+backdrop-filter: blur(8px);
+color: #ffffff;
+border: 1px solid rgba(255, 255, 255, 0.2);
+background: rgba(255, 255, 255, 0.1);
+backdrop-filter: blur(8px);
 border-radius: 999px;
 border: 1px solid black;
 `

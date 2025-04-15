@@ -180,5 +180,7 @@ export const exercises = [
         video: "https://www.youtube.com/watch?v=cc6UVRS7PW4",
         gender: "Both",
     },
+    
+    
     // The rest of the exercises follow the same pattern...
 ];

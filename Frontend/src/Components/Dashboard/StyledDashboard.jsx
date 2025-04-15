@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { Link } from "react-router-dom";
 
 export const StyledFeatureSection = styled.div`
@@ -128,3 +128,28 @@ export const StyledFooter = styled.div`
   align-items: start;
   margin-top: auto;
 `;
+
+const bounce = keyframes`
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+`;
+
+export const ScrollDownArrow = styled.div`
+ z-index: 4;
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: ${bounce} 2s infinite;
+  
+  svg {
+    width: 32px;
+    height: 32px;
+    color: white;
+  }
+`;
+

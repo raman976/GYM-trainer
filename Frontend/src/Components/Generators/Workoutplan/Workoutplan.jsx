@@ -277,13 +277,13 @@ console.log(workoutPlan)
             onChange={(e) => setEquipment(e.target.value)}
             style={styles.input}
           />
-          <button type="submit" disabled={loading} style={styles.button}>
+          <button type="submit" disabled={loading} style={{color:"black",fontWeight:"bold",fontSize:"16px",padding:"12px",backgroundColor:"#EBEDF1",border:"none",borderRadius:"6px",cursor:"pointer",marginTop:"10px"}}>
             {loading ? "Generating..." : "Generate Workout Plan"}
           </button>
         </form>
         {/* RIGHT: Workout Plan Display */}
         <div style={styles.resultSection}>
-          <h2 style={styles.subheading}>
+          <h2 style={{color: "black", marginBottom: "10px"}}>
             {workoutPlan ? "Your Workout Plan" : "No Workout Plan Available"}
           </h2>
           {workoutPlan ? (
@@ -302,18 +302,17 @@ console.log(workoutPlan)
     </div>
   );
 };
-
 const styles = {
   page: {
     fontFamily: "Segoe UI, sans-serif",
     padding: "40px",
-    backgroundColor: "#f4f6fa",
+    backgroundColor: "#171A26",
     minHeight: "100vh",
   },
   heading: {
     textAlign: "center",
     marginBottom: "30px",
-    color: "#333",
+    color: "#EAEAEA",
   },
   container: {
     display: "flex",
@@ -323,26 +322,28 @@ const styles = {
   },
   formSection: {
     flex: "1 1 300px",
-    background: "#fff",
+    background: "linear-gradient(to right, #7F7FA0 50%, #A8B2C5 100%)",
     padding: "25px",
     borderRadius: "12px",
-    boxShadow: "0 2px 12px rgba(0,0,0,0.05)",
+    // boxShadow: "0px 4px 15px rgba(56, 56, 56, 0.5)",
     display: "flex",
     flexDirection: "column",
     gap: "15px",
+    border: "1px solid #2A2A2A",
   },
   resultSection: {
     flex: "2 1 500px",
-    background: "#fff",
+    background: "linear-gradient(to right, #7F7FA0, #A8B2C5)",
     padding: "25px",
     borderRadius: "12px",
-    boxShadow: "0 2px 12px rgba(0,0,0,0.05)",
+    // boxShadow: "0px 4px 15px rgba(56, 56, 56, 0.5)",
     overflowY: "auto",
     maxHeight: "600px",
+    border: "1px solid #2A2A2A",
   },
   subheading: {
     marginBottom: "10px",
-    color: "#007bff",
+    color: "#EBEDF1",
   },
   input: {
     padding: "10px 12px",
@@ -352,7 +353,7 @@ const styles = {
   },
   button: {
     padding: "12px",
-    backgroundColor: "#007bff",
+    backgroundColor: "#EBEDF1",
     color: "#fff",
     fontWeight: "bold",
     border: "none",

@@ -5,9 +5,9 @@ import Mainpage from './mainpage/Mainpage'
 
 const Exercise = () => {
   return (
-    <div>
+    
         <Mainpage/>
-    </div>
+    
   )
 }
 

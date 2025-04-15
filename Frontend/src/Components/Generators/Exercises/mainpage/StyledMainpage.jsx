@@ -10,11 +10,13 @@ export const GridWrapper = styled.div`
 export const StyledCardWrapper = styled.div`
   display: flex;
   justify-content: center;
+  height:85%;
   align-items: center;
   flex-direction: column;
   border: 1px solid #ccc;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
+  background: linear-gradient(to right, #423C40, #3A5C60);
+
   transition: transform 0.2s;
   padding: 1rem;
   &:hover {
@@ -31,7 +33,8 @@ export const StyledCardUpperWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #f5f5f5;
+  background: linear-gradient(to right, #423C40, #3A5C60);
+
   border-radius: 10px;
 `;
 
@@ -43,6 +46,9 @@ export const StyledCardUpper = styled.img`
 `;
 export const StyledCardLower = styled.div`
   display: flex;
+  background: linear-gradient(to right, #423C40, #3A5C60);
+  width: 100%;
+  height: 100%;
   flex-direction: column;
   text-align: center;
 

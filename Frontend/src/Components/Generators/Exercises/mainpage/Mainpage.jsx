@@ -32,7 +32,7 @@ const Mainpage = () => {
   });
 
   return (
-    <div>
+    <div style={{backgroundColor:"#171A26",paddingTop:"24px"}}>
       <SearchBar search={search} setSearch={setSearch} />
       <Filterbar
         selectedFilters={selectedFilters}

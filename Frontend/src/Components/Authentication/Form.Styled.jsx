@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const BigContainer=styled.div`
-background: #1C1C1E;
+background: #171A26;
     width:100vw;
     height: 100vh;
     display:flex;
@@ -26,8 +26,8 @@ padding: 10px;
     justify-content: center;
     height: 70vh;
     width: 25vw;
-    background-color:#2E2E2E;
-`
+    background: linear-gradient(to right, #7F7FA0, #A8B2C5)
+    `
 export const ImageContainer1 = styled.div`
   width: 40vw;
   height: 70vh;
@@ -42,29 +42,35 @@ export const ImageContainer2 = styled.div`
 
 export const StyledInputField=styled.input`
 border:none;
+color:FFFFFF;
+outline: none;
 padding:15px;
 height: 5vh;
 width:25vh;
 border-radius: 999px;
 `
 
-export const StyledButton=styled.button`
-border:none;
-padding:15px;
-height: 5vh;
-width:25vh;
-border-radius: 999px;
-cursor: pointer;
-transition: background-color 0.3s ease;
-&:hover {
-    background-color: #45a049; 
+export const StyledButton = styled.button`
+  border: none;
+  padding: 15px;
+  height: 5vh;
+  width: 25vh;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, background-image 0.3s ease;
+  background-image: linear-gradient(to right, #FF0035, #FF6B00);
+  color: white;
+
+  &:hover {
+    background-image: linear-gradient(to right,rgb(167, 0, 33),rgb(174, 72, 0));
   }
-`
+`;
 
 export const StyledText=styled.p`
 color: white;
 `
 export const StyledSpan=styled.span`
+underline: none;
 text-decoration: none;
 color: white;
 `

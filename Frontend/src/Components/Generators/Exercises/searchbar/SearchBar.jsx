@@ -12,19 +12,19 @@ const SearchBar = ({ search, setSearch }) => {
 
   return (
     <StyledWrapper>
-      <div style={{ flex: 1 }} />
+      {/* <div style={{ flex: 1 }} /> */}
       <StyledInput
         placeholder="[|━|] search a workout"
         onChange={handle}
         value={search}
       />
-      <StyledLovedWorkouts
+      {/* <StyledLovedWorkouts
         src="https://cdn-icons-mp4.flaticon.com/512/11186/11186871.mp4"
         autoPlay
         loop
         muted
         playsInline
-      />
+      /> */}
     </StyledWrapper>
   );
 };

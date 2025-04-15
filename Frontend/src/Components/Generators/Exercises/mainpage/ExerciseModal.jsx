@@ -1,4 +1,3 @@
-// ExerciseModal.js
 import React from "react";
 import styled from "styled-components";
 
@@ -16,7 +15,7 @@ const Overlay = styled.div`
 `;
 
 const ModalContent = styled.div`
-  background-color: #fff;
+  background: linear-gradient(to right, #423C40, #3A5C60);
   width: 75%;
   height: 75%;
   border-radius: 10px;
