@@ -29,7 +29,7 @@ export const StyledCardWrapper = styled.div`
 `;
 export const StyledCardUpperWrapper = styled.div`
   width: 100%;
-  height: 180px;
+  height: 160px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -50,13 +50,15 @@ export const StyledCardLower = styled.div`
   width: 100%;
   height: 100%;
   flex-direction: column;
+  justify-content: center;
   text-align: center;
 
   padding: 1rem;
 `;
 export const StyledCardTitle = styled.h2`
   font-size: 1.5rem;
-  margin: 0;
+
+  margin-top: 10px;
 `;
 export const StyledCardDescription1 = styled.p`
   font-size: 1rem;

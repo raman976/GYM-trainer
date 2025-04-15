@@ -49,9 +49,9 @@ const ExerciseModal = ({ exercise, onClose }) => {
 
   allowFullScreen
 />
-        <p><strong>Target:</strong> {exercise.targetedpart}</p>
-        <p><strong>Type:</strong> {exercise.type}</p>
-        <p><strong>Gender:</strong> {exercise.gender}</p>
+        <p style={{fontSize:"25px"}}><strong>Target:</strong> {exercise.targetedpart}</p>
+        <p style={{fontSize:"25px"}}><strong>Type:</strong> {exercise.type}</p>
+        <p style={{fontSize:"25px"}}><strong>Gender:</strong> {exercise.gender}</p>
       </ModalContent>
     </Overlay>
   );

@@ -27,7 +27,7 @@ const Filterbar = ({ selectedFilters, onFilterClick }) => {
               background: !selectedFilters.includes(filter)
                 ? "transparent"
                 : "linear-gradient(to right, #423C40, #3A5C60)",
-              color: selectedFilters.includes(filter) ? "black" : "white",
+              color: selectedFilters.includes(filter) ? "white" : "white",
               transition: "all 0.2s",
             }}
           >
