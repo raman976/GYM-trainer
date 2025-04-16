@@ -1,6 +1,15 @@
 import React from "react";
 import { useState } from "react";
-import { BigContainer, FormContainer, ImageContainer1, PageContainer, StyledButton, StyledInputField, StyledSpan, StyledText } from "./Form.Styled";
+import {
+  BigContainer,
+  FormContainer,
+  ImageContainer1,
+  PageContainer,
+  StyledButton,
+  StyledInputField,
+  StyledSpan,
+  StyledText,
+} from "./Form.Styled";
 import { Link, useNavigate } from "react-router-dom";
 
 const Signup = () => {
@@ -35,34 +44,39 @@ const Signup = () => {
   }
   return (
     <BigContainer>
-    <PageContainer>
-    <ImageContainer1/>
-      <FormContainer onSubmit={handleclick}>
-        <StyledInputField
-          type="text"
-          placeholder="ENTER USERNAME"
-          onChange={(e) => setusername(e.target.value)}
-        />
-        <StyledInputField
-          type="email"
-          placeholder="ENTER EMAIL"
-          onChange={(e) => setemail(e.target.value)}
-        />
-        <StyledInputField
-          type="password"
-          placeholder="ENTER PASSWORD"
-          onChange={(e) => setpassword(e.target.value)}
-        />
-        <StyledInputField
-          type="text"
-          placeholder="ENTER PHONE NUMBER"
-          onChange={(e) => setphone(e.target.value)}
-        />
-        <StyledButton type="submit">SIGNUP</StyledButton>
-        <StyledText>
-          Already have an account? <Link to="/login"><StyledSpan>Click to Login</StyledSpan></Link>
-        </StyledText>
-      </FormContainer>
+      <PageContainer>
+        <ImageContainer1 />
+        <FormContainer onSubmit={handleclick}>
+          <StyledInputField
+            type="text"
+            placeholder="ENTER USERNAME"
+            onChange={(e) => setusername(e.target.value)}
+          />
+          <StyledInputField
+            type="email"
+            placeholder="ENTER EMAIL"
+            onChange={(e) => setemail(e.target.value)}
+          />
+          <StyledInputField
+            type="password"
+            placeholder="ENTER PASSWORD"
+            onChange={(e) => setpassword(e.target.value)}
+          />
+          <StyledInputField
+            type="text"
+            placeholder="ENTER PHONE NUMBER"
+            onChange={(e) => setphone(e.target.value)}
+          />
+          <StyledButton type="submit">
+            SIGNUP 
+          </StyledButton>
+          <StyledText>
+            Already have an account?{" "}
+            <Link to="/login">
+              <StyledSpan>Click to Login</StyledSpan>
+            </Link>
+          </StyledText>
+        </FormContainer>
       </PageContainer>
     </BigContainer>
   );

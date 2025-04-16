@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const BigContainer=styled.div`
-background: #171A26;
+background: #000000;
     width:100vw;
     height: 100vh;
     display:flex;
@@ -26,7 +26,7 @@ padding: 10px;
     justify-content: center;
     height: 70vh;
     width: 25vw;
-    background: linear-gradient(to right, #7F7FA0, #A8B2C5)
+    background: #EC652C
     `
 export const ImageContainer1 = styled.div`
   width: 40vw;
@@ -41,28 +41,31 @@ export const ImageContainer2 = styled.div`
 `;
 
 export const StyledInputField=styled.input`
-border:none;
-color:FFFFFF;
-outline: none;
+border: none;
+color:#FFFFFF;
+background: #EC652C;
+outline: 1px solid #FFFFFF;
 padding:15px;
 height: 5vh;
 width:25vh;
-border-radius: 999px;
+::placeholder{
+  color: #FFFFFF;
+}
 `
 
 export const StyledButton = styled.button`
+text-align: left;
   border: none;
   padding: 15px;
   height: 5vh;
   width: 25vh;
-  border-radius: 999px;
   cursor: pointer;
   transition: background-color 0.3s ease, background-image 0.3s ease;
-  background-image: linear-gradient(to right, #FF0035, #FF6B00);
-  color: white;
+  background: #FFFFFF;
+  color: black;
 
   &:hover {
-    background-image: linear-gradient(to right,rgb(167, 0, 33),rgb(174, 72, 0));
+    background:rgb(227, 216, 211);
   }
 `;
 

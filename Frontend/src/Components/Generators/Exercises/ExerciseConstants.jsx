@@ -5,7 +5,7 @@ export const exercises = [
         description: "A core-strengthening exercise that involves holding the body in a straight line while resting on the forearms and toes.",
         type: "Strength",
         targetedpart: "Core",
-        image: "https://www.realsimple.com/thmb/6W38_AhJ7Imj_zKyGsnI91KqqL8=/750x0/filters:no_upscale():max_bytes(150000):strip_icc()/plank-crop-2d801120c6744ca0b27909c142588d6e.jpg",
+        image: "https://as2.ftcdn.net/v2/jpg/02/70/00/73/1000_F_270007332_XKUTg4xkGRVMLZZIYnjYygM1qSKjkH08.jpg",
         video: "https://www.youtube.com/watch?v=pSHjTRCQxIw",
         gender: "Both",
     },
