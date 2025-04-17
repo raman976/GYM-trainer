@@ -154,13 +154,13 @@ const styles = {
   page: {
     fontFamily: "Segoe UI, sans-serif",
     padding: "40px",
-    backgroundColor: "#171A26",
+    backgroundColor: "#111111",
     minHeight: "100vh",
   },
   heading: {
     textAlign: "center",
     marginBottom: "30px",
-    color: "#EAEAEA",
+    color: "#F97316",
   },
   container: {
     display: "flex",
@@ -170,7 +170,7 @@ const styles = {
   },
   formSection: {
     flex: "1 1 300px",
-    background: "linear-gradient(to right, #7F7FA0 50%, #A8B2C5 100%)",
+    background: "#171717",
 
     padding: "25px",
     borderRadius: "12px",
@@ -182,7 +182,7 @@ const styles = {
   },
   resultSection: {
     flex: "2 1 500px",
-    background: "linear-gradient(to right, #7F7FA0, #A8B2C5)",
+    background: "#171717",
     padding: "25px",
     borderRadius: "12px",
     // boxShadow: "0px 4px 15px rgba(56, 56, 56, 0.5)",
