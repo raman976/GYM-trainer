@@ -1,4 +1,5 @@
 import React from "react";
+import logo2 from "../../ASSETS/finallogo.png";
 import { useState } from "react";
 import {
   BigContainer,
@@ -47,6 +48,9 @@ const Signup = () => {
       <PageContainer>
         <ImageContainer1 />
         <FormContainer onSubmit={handleclick}>
+        <div style={{display:"flex",alignItems:"center",flexDirection:"start",width: "100%",marginLeft: "30%"}}><img src={logo2} style={{marginBottom:"2.2%",height:"40px",width:"40px",borderRadius:"50%",marginRight:"3%"}}></img><h2 style={{color:"white",marginBottom:"0px,"}}>FitX</h2></div>
+        
+        <p style={{color:"#9CA3AF",marginTop:""}}>Welcome to FitX! We're thrilled you're here.</p>
           <StyledInputField
             type="text"
             placeholder="ENTER USERNAME"
@@ -73,7 +77,7 @@ const Signup = () => {
           <StyledText>
             Already have an account?{" "}
             <Link to="/login">
-              <StyledSpan>Click to Login</StyledSpan>
+              <StyledSpan>Login</StyledSpan>
             </Link>
           </StyledText>
         </FormContainer>

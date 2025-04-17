@@ -1,4 +1,5 @@
 import React from "react";
+import logo2 from "../../ASSETS/finallogo.png";
 import { BigContainer, FormContainer, ImageContainer2, PageContainer, StyledButton, StyledInputField, StyledSpan, StyledText } from "./Form.Styled";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -40,6 +41,9 @@ const Login = () => {
     <PageContainer>
     <ImageContainer2/>
     <FormContainer onSubmit={handleSubmit}>
+    <div style={{display:"flex",alignItems:"center",flexDirection:"start",width: "100%",marginLeft: "23%"}}><img src={logo2} style={{marginBottom:"2.2%",height:"40px",width:"40px",borderRadius:"50%",marginRight:"3%"}}></img><h2 style={{color:"white",marginBottom:"0px,"}}>FitX</h2></div>
+            
+            <p style={{color:"#9CA3AF",marginTop:""}}>Welcome back, We are happy to see you again.</p>
       <StyledInputField
         type="email"
         placeholder="enter you registered email"
