@@ -3,10 +3,12 @@ import { StyledCards, StyledCenteredDiv, StyledFeatureSection } from "./StyledDa
 import { StyledCardLeft } from "./StyledDashboard";
 import HeroSection from "./HeroSection";
 import Footer from "./Footer";
+import Header from "./Header";
 
 const Dashboard = () => {
   return (
-    <div style={{ overflowY: "auto", height: "100vh" }}>
+    <div style={{ overflowY: "auto", height: "100vh" , backgroundColor: "black"}}>
+    <Header/>
    <HeroSection/> 
       <StyledCenteredDiv>
   <StyledFeatureSection>

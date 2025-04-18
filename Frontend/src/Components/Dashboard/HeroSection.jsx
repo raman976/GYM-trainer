@@ -10,36 +10,41 @@ const HeroSection = () => {
   return (
     <HeroContainer>
       <VideoBackground>
-        <ReactPlayer
-          url="https://www.youtube.com/watch?v=HQfF5XRVXjU"
-          playing
-          loop
-          muted
-          controls={false}
-          width="100%"
-          height="100%"
-        />
+      <ReactPlayer
+  url="https://www.youtube.com/watch?v=HQfF5XRVXjU"
+  playing
+  loop
+  muted
+  controls={false}
+  width="100%"
+  height="100%"
+
+  
+/>
+
       </VideoBackground>
       <Overlay />
       <TextOverlay>
+      
         <Typewriter
           options={{
             strings: [
-              "Sweat Smarter.",
-              "Fueled by AI. Driven by You.",
-              "Smart Fitness Starts Here.",
-              "AI Coach. Real Results.",
-              "Precision in Every Rep.",
-              "Your Body. Your Data. Your Power."
+              'Sweat <span style="color: #DAA520;">Smarter</span>.',
+              'Fueled by <span style="color: #DAA520;">AI </span>Driven by You.',
+              'Smart <span style="color: #DAA520;">Fitness </span> Starts Here.',
+              'AI Coach. Real <span style="color: #DAA520;">Results </span>.',
+              '<span style="color: #DAA520;">Precision </span>. in Every Rep.',
+              'Your <span style="color: #DAA520;">Body </span>. Your <span style="color: #DAA520;">Data </span>. Your <span style="color: #DAA520;">Power </span>.'
             ],
             autoStart: true,
             loop: true,
             delay: 50,
             deleteSpeed: 30,
+            html: true,
+
           }}
         />
-      </TextOverlay>
-      <ScrollDownArrow>
+        <ScrollDownArrow>
   <svg
     fill="none"
     stroke="currentColor"
@@ -49,7 +54,9 @@ const HeroSection = () => {
     <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
   </svg>
 </ScrollDownArrow>
-
+      </TextOverlay>
+      
+      
     </HeroContainer>
   );
 };

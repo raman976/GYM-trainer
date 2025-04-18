@@ -1,6 +1,31 @@
 import styled, { keyframes } from "styled-components";
 import { Link } from "react-router-dom";
 
+export const StyledHeaderWrapper = styled.div`
+  display: flex;
+  flex-direction:row;
+  align-items: end;
+  `
+export const StyledDiv = styled.div`
+display: flex;
+margin-top: 2.5%;
+margin-left: 3%;
+margin-bottom: 0%;
+flex-direction: column;
+`
+export const StyledHeader = styled.h2`
+
+font-size: 30px;
+background: black;
+color: #FFFFFF;
+span{
+  color: #DAA520;
+}
+`
+export const StyledPara = styled.p`
+color: #9CA3AF;
+font-size: 20px;
+`
 export const StyledFeatureSection = styled.div`
   display: grid;
   justify-self: center;
@@ -77,6 +102,8 @@ export const StyledCardLeft = styled.div`
 
 export const HeroContainer = styled.div`
   position: relative;
+  display: flex;
+
   width: 100%;
   height: 100vh;
   overflow: hidden;
@@ -103,19 +130,32 @@ export const Overlay = styled.div`
   background: rgba(0, 0, 0, 0.4);
 `;
 
+// export const TextOverlay = styled.div`
+//   position: relative;
+//   z-index: 3;
+//   width: 100%;
+//   height: 100%;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   font-size: 6rem;
+//   color: white;
+//   text-align: center;
+// `;
+
 export const TextOverlay = styled.div`
-  position: relative;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 3;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 6rem;
   color: white;
+  font-size: 6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
 `;
-
-
 
 export const StyledFooter = styled.div`
   background-color: #2e2e2e;
@@ -138,18 +178,16 @@ const bounce = keyframes`
   }
 `;
 
+
+
+
 export const ScrollDownArrow = styled.div`
- z-index: 4;
-  position: absolute;
-  bottom: 1rem;
-  left: 50%;
-  transform: translateX(-50%);
+  margin-top: 1rem;
   animation: ${bounce} 2s infinite;
-  
   svg {
     width: 32px;
     height: 32px;
     color: white;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.6));
   }
 `;
-
