@@ -35,3 +35,27 @@ export const StyledSubHeader = styled.h2`
   text-align: center;
   margin-top: 1%;
 `;
+
+export const StyledFormContainer = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: start;
+    flex-wrap: wrap;
+    gap: 20px;
+`
+
+export const StyledForm = styled.form`
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+border-radius: 20px;
+width: 30%;
+border: 1px solid #191919;
+padding: 20px;
+background: linear-gradient(to right, #111111 50%, #000000 100%);
+imput{
+    
+}
+`

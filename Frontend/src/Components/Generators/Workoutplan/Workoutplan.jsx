@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { marked } from "marked";
-import { StyledHeaderContainer, StyledPageWrapper,StyledHeader ,StyledSubHeader} from "./StyledWorkoutPlan";
+import { StyledHeaderContainer, StyledPageWrapper,StyledHeader ,StyledSubHeader, StyledFormContainer,StyledForm} from "./StyledWorkoutPlan";
 
 const WorkoutPlanner = () => {
   const [days, setDays] = useState("");
@@ -99,11 +99,9 @@ console.log(workoutPlan)
       </StyledSubHeader>
       </StyledHeaderContainer>
 
-      {error && <p style={styles.error}>{error}</p>}
-
-      <div style={styles.container}>
-        <form onSubmit={fetchWorkoutPlan} style={styles.formSection}>
-          <h2 style={styles.subheading}>Enter Your Preferences</h2>
+      <StyledFormContainer>
+        <StyledForm onSubmit={fetchWorkoutPlan} >
+          <h2 style={styles.subheading}>Customize Your Plan</h2>
           <input
             type="number"
             placeholder="Workout Days per Week"
@@ -132,7 +130,7 @@ console.log(workoutPlan)
           <button type="submit" disabled={loading} style={{color:"black",fontWeight:"bold",fontSize:"16px",padding:"12px",backgroundColor:"#EBEDF1",border:"none",borderRadius:"6px",cursor:"pointer",marginTop:"10px"}}>
             {loading ? "Generating..." : "Generate Workout Plan"}
           </button>
-        </form>
+        </StyledForm>
         {/* RIGHT: Workout Plan Display */}
         <div style={styles.resultSection}>
           <h2 style={{color: "black", marginBottom: "10px"}}>
@@ -150,7 +148,7 @@ console.log(workoutPlan)
             <p style={{ color: "#555" }}>Generate a plan to see it here.</p>
           )}
         </div>
-      </div>
+      </StyledFormContainer>
     </StyledPageWrapper>
   );
 };
