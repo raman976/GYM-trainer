@@ -10,19 +10,19 @@ const HeroSection = () => {
   return (
     <HeroContainer>
       <VideoBackground>
-      <ReactPlayer
-  url="https://www.youtube.com/watch?v=HQfF5XRVXjU"
-  playing
-  loop
-  muted
-  controls={false}
-  width="100%"
-  height="100%"
-
-  
-/>
-
-      </VideoBackground>
+  <div className="player-wrapper">
+    <ReactPlayer
+      className="react-player"
+      url="https://www.youtube.com/watch?v=HQfF5XRVXjU"
+      playing
+      loop
+      muted
+      controls={false}
+      width="100%"
+      height="100%"
+    />
+  </div>
+</VideoBackground>
       <Overlay />
       <TextOverlay>
       
