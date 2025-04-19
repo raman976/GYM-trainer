@@ -17,15 +17,16 @@ export const StyledHeaderWrapper = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
-  align-items: end;
-  padding: 1rem 2rem;
+  align-items: center;
+  padding: 0rem 2rem;
   background: black;
 `;
 export const StyledDiv = styled.div`
 display: flex;
-margin-top: 2.5%;
+margin-top: 0.3%;
 margin-left: 3%;
 margin-bottom: 0%;
+padding-bottom:0.5vh;
 flex-direction: column;
 `
 export const StyledHeader = styled.h2`
@@ -72,7 +73,7 @@ export const VideoBackground = styled.div`
   left: 0;
   z-index: 1;
   width: 100%;
-  height: 100%;
+  height: 98%;
   overflow: hidden;
 
   .player-wrapper {
@@ -123,7 +124,7 @@ export const TextOverlay = styled.div`
   transform: translate(-50%, -50%);
   z-index: 3;
   color: white;
-  font-size: 6rem;
+  font-size: 3rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -297,44 +298,54 @@ display: flex;
 gap: 5%;
 flex-direction:row;
 height: auto;
-transition: all 0.3s ease;
-:hover{
-  svg{
-    transform: scale(1.2);
-  }StyledQuoteCard{
-    transform: scale(1.1);
-  }
-}
 width: 100%;
 justify-content: center;
 align-items: center;
 margin: auto;
 padding: 2%;
-`
 
-export const StyledQuoteCard = styled.div`
-display: flex;
-padding: 3%;
-color: #FFFFFF;
-background: linear-gradient(to right, #111111 50%, #010101);
-border-radius:20px;
-width:50%;
-flex-direction: column;
-align-items: flex-start;
-gap: 3vh;
-height: 40vh;
-border: 1px solid rgb(172, 172, 172);
-h1{
-  line-height: 28px;
-  color: #DAA520;
-  margin-top: 3.5vh;
-}
-p{
-  color:#DAA520;
-  font-weight: 800;
-}
-h4{
-  line-height: 3vh;
-  font-size: larger;
-}
 `
+export const StyledQuoteCard = styled.div`
+  display: flex;
+  padding: 3%;
+  color: #FFFFFF;
+  background: linear-gradient(to right, #111111 50%, #010101);
+  border-radius: 20px;
+  width: 50%;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3vh;
+  outline: none;
+
+  height: 40vh;
+  border: 1px solid rgb(172, 172, 172);
+  transition: transform 0.3s ease;
+  
+  svg {
+    transition: transform 0.3s ease;
+  }
+
+  &:hover {
+    svg {
+      transform: scale(1.2);
+    }
+    box-shadow: 0 0 0 2px #f97316;
+    border-color: transparent;
+  }
+
+  h1 {
+    line-height: 28px;
+    color: #DAA520;
+    margin-top: 3.5vh;
+  }
+
+  p {
+    color: #DAA520;
+    font-weight: 800;
+  }
+
+  h4 {
+    line-height: 3vh;
+    font-size: larger;
+  }
+`;

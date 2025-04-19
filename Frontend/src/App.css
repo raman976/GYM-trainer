@@ -12,10 +12,16 @@ html, body {
   background: #1C1C1E;
   overflow: auto;
 }
-
+html {
+  scroll-behavior: smooth;
+}
 #root {
   height: 100%;
 }
+html, body {
+  scroll-behavior: smooth;
+}
+
 
 .logo {
   height: 6em;

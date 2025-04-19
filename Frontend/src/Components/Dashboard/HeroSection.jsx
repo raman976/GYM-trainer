@@ -33,7 +33,7 @@ const HeroSection = () => {
               'Fueled by <span style="color: #DAA520;">AI </span>Driven by You.',
               'Smart <span style="color: #DAA520;">Fitness </span> Starts Here.',
               'AI Coach. Real <span style="color: #DAA520;">Results </span>.',
-              '<span style="color: #DAA520;">Precision </span>. in Every Rep.',
+              '<span style="color: #DAA520;">Precision </span> in Every Rep.',
               'Your <span style="color: #DAA520;">Body </span>. Your <span style="color: #DAA520;">Data </span>. Your <span style="color: #DAA520;">Power </span>.'
             ],
             autoStart: true,
@@ -45,7 +45,8 @@ const HeroSection = () => {
           }}
         />
         <ScrollDownArrow>
-  <svg
+        <a href="#features">
+  <svg 
     fill="none"
     stroke="currentColor"
     strokeWidth="2"
@@ -53,6 +54,7 @@ const HeroSection = () => {
   >
     <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
   </svg>
+  </a>
 </ScrollDownArrow>
       </TextOverlay>
       

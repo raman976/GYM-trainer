@@ -8,7 +8,8 @@ import {
 
 const Features = () => {
   return (
-    <div style={{ display: "flex", justifyContent: "center" }}>
+    <div style={{ display: "flex", justifyContent: "center" }} >
+    <section id="features" style={{ display: "flex", justifyContent: "center" ,width:"100%"}}>
       <StyledDashboardOuterWrapper>
         <h2 style={{ color: "white", fontWeight: "bold" }}>AI Fitness Tools</h2>
         <StyledDashboardInnerWrapper>
@@ -132,6 +133,7 @@ const Features = () => {
           </StyledDashboardCard>
         </StyledDashboardInnerWrapper>
       </StyledDashboardOuterWrapper>
+      </section>
     </div>
   );
 };
