@@ -3,28 +3,33 @@ import styled from "styled-components";
 
 export const  StyledInput=styled.input`
 font-size: 1rem;
-width:50%;
-height:50px;
-border-radius:999px;
-background: rgba(255, 255, 255, 0.1);
+width:100%;
+height:5vh;
+background: #090909;
 backdrop-filter: blur(8px);
 color: #ffffff;
 border: 1px solid rgba(255, 255, 255, 0.2);
 padding:10px 30px;
 outline: none;
+transition: all 0.3s ease;
 ::placeholder {
   color: rgba(255, 255, 255, 0.6);
 }
+&:focus{
+    outline:2px solid #D9A520
+}
+border-radius: 10px;
 `
 
 export const StyledWrapper=styled.div`
 display: flex;
-max-width: 100vw;
+width: 30%;
 align-items: center;
-justify-content: center;
+justify-content: flex-start;
 flex-direction: row;
 
 position: sticky;
+margin-top:1%;
 z-index: 999;
 left: 0;
 right: 0;

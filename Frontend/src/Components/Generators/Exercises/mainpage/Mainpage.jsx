@@ -4,8 +4,8 @@ import Filterbar from "../filterbar/Filterbar";
 import Card from "./Card";
 import ExerciseModal from "./ExerciseModal";
 import { exercises } from "../ExerciseConstants";
-import { GridWrapper } from "./StyledMainpage";
-
+import { GridWrapper, StyledPageWrapper } from "./StyledMainpage";
+import Footer from "../../../Dashboard/Footer"
 const Mainpage = () => {
   const [search, setSearch] = useState("");
   const [selectedExercise, setSelectedExercise] = useState(null);
@@ -20,7 +20,9 @@ const Mainpage = () => {
   };
 
   const filteredExercises = exercises.filter((exercise) => {
-    const matchesSearch = exercise.name.toLowerCase().includes(search.toLowerCase());
+    const matchesSearch = exercise.name
+      .toLowerCase()
+      .includes(search.toLowerCase());
 
     const matchesFilters =
       selectedFilters.length === 0 ||
@@ -32,27 +34,49 @@ const Mainpage = () => {
   });
 
   return (
-    <div style={{backgroundColor:"#171A26",paddingTop:"24px"}}>
-      <SearchBar search={search} setSearch={setSearch} />
-      <Filterbar
-        selectedFilters={selectedFilters}
-        onFilterClick={handleFilterClick}
-      />
-      <GridWrapper>
-        {filteredExercises.map((exercise) => (
-          < Card key={exercise.name} props={exercise} onClick={() => {
-            console.log("Clicked:", exercise.name);
-            setSelectedExercise(exercise)
-            
-            }
-            
-          } />
-        ))}
-      </GridWrapper>
-      <ExerciseModal
-        exercise={selectedExercise}
-        onClose={() => setSelectedExercise(null)}
-      />
+    <div
+      style={{
+        backgroundColor: "black",
+        height: "100%",
+        overflowY: "auto",
+        width: "100%",
+      }}
+    >
+      <StyledPageWrapper>
+        <h1 style={{ color: "#F97316", fontSize: "5vh" }}>Exercise Library</h1>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "flex-start",
+            alignItems: "center",
+            width: "100%",
+            gap: "3.5%",
+            flexDirection: "row",
+          }}
+        >
+          <SearchBar search={search} setSearch={setSearch} />
+          <Filterbar
+            selectedFilters={selectedFilters}
+            onFilterClick={handleFilterClick}
+          />
+        </div>
+        <GridWrapper>
+          {filteredExercises.map((exercise) => (
+            <Card
+              key={exercise.name}
+              props={exercise}
+              onClick={() => {
+                console.log("Clicked:", exercise.name);
+                setSelectedExercise(exercise);
+              }}
+            />
+          ))}
+        </GridWrapper>
+        <ExerciseModal
+          exercise={selectedExercise}
+          onClose={() => setSelectedExercise(null)}
+        />
+      </StyledPageWrapper>
     </div>
   );
 };

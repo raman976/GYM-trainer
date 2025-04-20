@@ -12,7 +12,6 @@ const SearchBar = ({ search, setSearch }) => {
 
   return (
     <StyledWrapper>
-      {/* <div style={{ flex: 1 }} /> */}
       <StyledInput
         placeholder="[|━|] search a workout"
         onChange={handle}

@@ -14,9 +14,9 @@ const Card = (props) => {
           <StyledCardUpper src={props.props.image} alt={props.props.name} />
         </StyledCardUpperWrapper>
 
-        <StyledCardLower>
+        {/* <StyledCardLower>
           <StyledCardTitle>{props.props.name}</StyledCardTitle>
-        </StyledCardLower>
+        </StyledCardLower> */}
       </StyledCardWrapper>
     </div>
   );
