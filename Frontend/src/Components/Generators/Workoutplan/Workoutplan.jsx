@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { marked } from "marked";
 import { StyledHeaderContainer, StyledPageWrapper,StyledHeader ,StyledSubHeader, StyledFormContainer,StyledForm,StyledInput,StyledButton,StyledResultSection,MarkdownWrapper} from "./StyledWorkoutPlan";
-import { StyledFooter } from "../../Dashboard/StyledDashboard";
+
 import Footer from "../../Dashboard/Footer";
 
 const WorkoutPlanner = () => {
@@ -88,8 +88,6 @@ const WorkoutPlanner = () => {
       setLoading(false);
     }
   }
-  // console.log(workoutPlan.plan)
-  // const finaldata = workoutPlan.plan.replace(/\\boxed{([^}]*)}/g, "$1");
   
 console.log(workoutPlan)
   return (
@@ -167,12 +165,12 @@ console.log(workoutPlan)
           </div>
         </StyledForm>
         <StyledResultSection>
-          <h2 style={{color: "White", marginBottom: "10px",marginTop:"2.1%",fontSize:"3.2vh",color:"#F97316"}}>
+          <h2 style={{ marginBottom: "10px",marginTop:"2.1%",fontSize:"3.2vh",color:"#F97316"}}>
             {workoutPlan ? "Your Personalised Plan" : "No Workout Plan Available"}
           </h2>
           {workoutPlan ? (
             <MarkdownWrapper
-              style={styles.planBox}
+              
               
               dangerouslySetInnerHTML={{
                 __html: marked.parse(workoutPlan.plan, { gfm: true }),
@@ -187,75 +185,6 @@ console.log(workoutPlan)
     <Footer/>
     </div>
   );
-};
-const styles = {
-  page: {
-    fontFamily: "Segoe UI, sans-serif",
-    padding: "40px",
-    backgroundColor: "#171A26",
-    minHeight: "100vh",
-  },
-  heading: {
-    textAlign: "center",
-    marginBottom: "30px",
-    color: "#EAEAEA",
-  },
-  container: {
-    display: "flex",
-    gap: "30px",
-    flexWrap: "wrap",
-    justifyContent: "space-between",
-  },
-  formSection: {
-    flex: "1 1 300px",
-    background: "linear-gradient(to right, #7F7FA0 50%, #A8B2C5 100%)",
-    padding: "25px",
-    borderRadius: "12px",
-    // boxShadow: "0px 4px 15px rgba(56, 56, 56, 0.5)",
-    display: "flex",
-    flexDirection: "column",
-    gap: "15px",
-    border: "1px solid #2A2A2A",
-  },
-  resultSection: {
-    background: "linear-gradient(to right, #7F7FA0, #A8B2C5)",
-    padding: "25px",
-    borderRadius: "12px",
-    // boxShadow: "0px 4px 15px rgba(56, 56, 56, 0.5)",
-    overflowY: "auto",
-    maxHeight: "600px",
-    border: "1px solid #2A2A2A",
-  },
-  subheading: {
-    marginBottom: "10px",
-    color: "#EBEDF1",
-  },
-  input: {
-    padding: "10px 12px",
-    border: "1px solid #ccc",
-    borderRadius: "6px",
-    fontSize: "14px",
-  },
-  button: {
-    padding: "12px",
-    backgroundColor: "#EBEDF1",
-    color: "#fff",
-    fontWeight: "bold",
-    border: "none",
-    borderRadius: "6px",
-    cursor: "pointer",
-    marginTop: "10px",
-  },
-  planBox: {
-    whiteSpace: "pre-wrap",
-    wordWrap: "break-word",
-    lineHeight: "1.5",
-  },
-  error: {
-    color: "red",
-    marginBottom: "15px",
-    textAlign: "center",
-  },
 };
 
 export default WorkoutPlanner;

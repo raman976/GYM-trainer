@@ -1,3 +1,153 @@
+// // import React, { useEffect, useState } from "react";
+// // import { marked } from "marked";
+
+// // const Bmianalyser = () => {
+// //   const [height, setHeight] = useState("");
+// //   const [weight, setWeight] = useState("");
+// //   const [gender, setGender] = useState("");
+// //   const [age, setAge] = useState("");
+// //   const [analysis, setAnalysis] = useState(null);
+// //   const [loading, setLoading] = useState(false);
+// //   const [error, setError] = useState("");
+
+// //   const token = localStorage.getItem("token");
+
+// //   // Fetch existing BMI analysis
+// //   useEffect(() => {
+// //     async function fetchBMI() {
+// //       if (!token) {
+// //         setError("No token found. Please log in.");
+// //         return;
+// //       }
+
+// //       setLoading(true);
+// //       try {
+// //         const res = await fetch("http://localhost:3000/analyse/get", {
+// //           method: "GET",
+// //           headers: {
+// //             "Content-Type": "application/json",
+// //             Authorization: `Bearer ${token}`,
+// //           },
+// //           credentials: "include",
+// //         });
+
+// //         if (!res.ok) throw new Error("Failed to fetch BMI analysis");
+
+// //         const data = await res.json();
+// //         setAnalysis(data.analysis);
+// //       } catch (err) {
+// //         setError(err.message);
+// //       } finally {
+// //         setLoading(false);
+// //       }
+// //     }
+
+// //     fetchBMI();
+// //   }, [token]);
+
+// //   // Generate new BMI analysis
+// //   async function generateBMI(e) {
+// //     e.preventDefault();
+// //     setLoading(true);
+// //     setError("");
+
+// //     if (!token) {
+// //       setError("Authentication error: Please log in.");
+// //       setLoading(false);
+// //       return;
+// //     }
+
+// //     try {
+// //       const res = await fetch("http://localhost:3000/analyse/generate", {
+// //         method: "POST",
+// //         headers: {
+// //           "Content-Type": "application/json",
+// //           Authorization: `Bearer ${token}`,
+// //         },
+// //         credentials: "include",
+// //         body: JSON.stringify({ height, weight, gender, age }),
+// //       });
+
+// //       if (!res.ok) throw new Error("Failed to generate BMI analysis");
+
+// //       const data = await res.json();
+// //       setAnalysis(data.analysis);
+// //     } catch (err) {
+// //       setError(err.message);
+// //     } finally {
+// //       setLoading(false);
+// //     }
+// //   }
+
+// //   return (
+// //     <div style={{ padding: "20px", maxWidth: "500px", margin: "auto" }}>
+// //       <h1>Body Mass Index (BMI) Analyzer</h1>
+
+// //       {error && <p style={{ color: "red" }}>{error}</p>}
+
+// //       {analysis && (
+// //         <div style={{ background: "#f8f8f8", padding: "15px", borderRadius: "8px", marginBottom: "20px" }}>
+// //           <h2>Your Last BMI Analysis:</h2>
+// //           <div
+// //             style={{ whiteSpace: "pre-wrap", wordWrap: "break-word" }}
+// //             dangerouslySetInnerHTML={{ __html: marked.parse(analysis) }}
+// //           />
+// //         </div>
+// //       )}
+
+// //       <form onSubmit={generateBMI} style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+// //         <input
+// //           type="number"
+// //           placeholder="Height (cm)"
+// //           value={height}
+// //           onChange={(e) => setHeight(e.target.value)}
+// //           required
+// //         />
+// //         <input
+// //           type="number"
+// //           placeholder="Weight (kg)"
+// //           value={weight}
+// //           onChange={(e) => setWeight(e.target.value)}
+// //           required
+// //         />
+// //         <input
+// //           type="text"
+// //           placeholder="Gender"
+// //           value={gender}
+// //           onChange={(e) => setGender(e.target.value)}
+// //           required
+// //         />
+// //         <input
+// //           type="number"
+// //           placeholder="Age"
+// //           value={age}
+// //           onChange={(e) => setAge(e.target.value)}
+// //           required
+// //         />
+// //         <button
+// //           type="submit"
+// //           disabled={loading}
+// //           style={{
+// //             background: "#007bff",
+// //             color: "#fff",
+// //             padding: "10px",
+// //             border: "none",
+// //             cursor: "pointer",
+// //           }}
+// //         >
+// //           {loading ? "Analyzing..." : "Generate BMI Analysis"}
+// //         </button>
+// //       </form>
+// //     </div>
+// //   );
+// // };
+
+// // export default Bmianalyser;
+
+
+
+
+
 // import React, { useEffect, useState } from "react";
 // import { marked } from "marked";
 
@@ -12,7 +162,6 @@
 
 //   const token = localStorage.getItem("token");
 
-//   // Fetch existing BMI analysis
 //   useEffect(() => {
 //     async function fetchBMI() {
 //       if (!token) {
@@ -34,7 +183,9 @@
 //         if (!res.ok) throw new Error("Failed to fetch BMI analysis");
 
 //         const data = await res.json();
-//         setAnalysis(data.analysis);
+//         const cleanAnalysis = data.analysis.replace(/\\boxed{([^}]*)}/g, "$1");
+
+//         setAnalysis(cleanAnalysis);
 //       } catch (err) {
 //         setError(err.message);
 //       } finally {
@@ -45,7 +196,6 @@
 //     fetchBMI();
 //   }, [token]);
 
-//   // Generate new BMI analysis
 //   async function generateBMI(e) {
 //     e.preventDefault();
 //     setLoading(true);
@@ -80,76 +230,168 @@
 //   }
 
 //   return (
-//     <div style={{ padding: "20px", maxWidth: "500px", margin: "auto" }}>
-//       <h1>Body Mass Index (BMI) Analyzer</h1>
+//     <div style={styles.page}>
+//       <h1 style={styles.heading}>AI-Powered BMI Analyzer</h1>
 
-//       {error && <p style={{ color: "red" }}>{error}</p>}
+//       {error && <p style={styles.error}>{error}</p>}
 
-//       {analysis && (
-//         <div style={{ background: "#f8f8f8", padding: "15px", borderRadius: "8px", marginBottom: "20px" }}>
-//           <h2>Your Last BMI Analysis:</h2>
-//           <div
-//             style={{ whiteSpace: "pre-wrap", wordWrap: "break-word" }}
-//             dangerouslySetInnerHTML={{ __html: marked.parse(analysis) }}
+//       <div style={styles.container}>
+//         {/* LEFT: Form */}
+//         <form onSubmit={generateBMI} style={styles.formSection}>
+//           <h2 style={styles.subheading}>Enter Your Details</h2>
+//           <input
+//             type="number"
+//             placeholder="Height (cm)"
+//             value={height}
+//             onChange={(e) => setHeight(e.target.value)}
+//             required
+//             min="50"
+//             style={styles.input}
 //           />
-//         </div>
-//       )}
+//           <input
+//             type="number"
+//             placeholder="Weight (kg)"
+//             value={weight}
+//             onChange={(e) => setWeight(e.target.value)}
+//             required
+//             min="20"
+//             style={styles.input}
+//           />
+//           <input
+//             type="text"
+//             placeholder="Gender"
+//             value={gender}
+//             onChange={(e) => setGender(e.target.value)}
+//             required
+//             style={styles.input}
+//           />
+//           <input
+//             type="number"
+//             placeholder="Age"
+//             value={age}
+//             onChange={(e) => setAge(e.target.value)}
+//             required
+//             min="1"
+//             style={styles.input}
+//           />
+//           <button type="submit" disabled={loading} style={{color:"black",fontWeight:"bold",fontSize:"16px",padding:"12px",backgroundColor:"#EBEDF1",border:"none",borderRadius:"6px",cursor:"pointer",marginTop:"10px"}}>
+//             {loading ? "Analyzing..." : "Generate BMI Analysis"}
+//           </button>
+//         </form>
 
-//       <form onSubmit={generateBMI} style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-//         <input
-//           type="number"
-//           placeholder="Height (cm)"
-//           value={height}
-//           onChange={(e) => setHeight(e.target.value)}
-//           required
-//         />
-//         <input
-//           type="number"
-//           placeholder="Weight (kg)"
-//           value={weight}
-//           onChange={(e) => setWeight(e.target.value)}
-//           required
-//         />
-//         <input
-//           type="text"
-//           placeholder="Gender"
-//           value={gender}
-//           onChange={(e) => setGender(e.target.value)}
-//           required
-//         />
-//         <input
-//           type="number"
-//           placeholder="Age"
-//           value={age}
-//           onChange={(e) => setAge(e.target.value)}
-//           required
-//         />
-//         <button
-//           type="submit"
-//           disabled={loading}
-//           style={{
-//             background: "#007bff",
-//             color: "#fff",
-//             padding: "10px",
-//             border: "none",
-//             cursor: "pointer",
-//           }}
-//         >
-//           {loading ? "Analyzing..." : "Generate BMI Analysis"}
-//         </button>
-//       </form>
+//         {/* RIGHT: Result Display */}
+//         <div style={styles.resultSection}>
+//           <h2 style={{color: "black", marginBottom: "10px"}}>
+//             {analysis ? "Your BMI Analysis" : "No Analysis Available"}
+//           </h2>
+//           {analysis ? (
+//             <div
+//               style={styles.planBox}
+            
+//               dangerouslySetInnerHTML={{ __html: marked.parse(analysis) }}
+//             />
+//           ) : (
+//             <p style={{ color: "#555" }}>Generate your BMI analysis to see it here.</p>
+//           )}
+//         </div>
+//       </div>
 //     </div>
 //   );
+// };
+
+
+// const styles = {
+//   page: {
+//     fontFamily: "Segoe UI, sans-serif",
+//     padding: "40px",
+//     backgroundColor: "#171A26",
+//     minHeight: "100vh",
+//   },
+//   heading: {
+//     textAlign: "center",
+//     marginBottom: "30px",
+//     color: "#EAEAEA",
+//   },
+//   container: {
+//     display: "flex",
+//     gap: "30px",
+//     flexWrap: "wrap",
+//     justifyContent: "space-between",
+//   },
+//   formSection: {
+//     flex: "1 1 300px",
+//     background: "linear-gradient(to right, #7F7FA0 50%, #A8B2C5 100%)",
+//     padding: "25px",
+//     borderRadius: "12px",
+//     // boxShadow: "0px 4px 15px rgba(56, 56, 56, 0.5)",
+//     display: "flex",
+//     flexDirection: "column",
+//     gap: "15px",
+//     border: "1px solid #2A2A2A",
+//   },
+//   resultSection: {
+//     flex: "2 1 500px",
+//     background: "linear-gradient(to right, #7F7FA0, #A8B2C5)",
+//     padding: "25px",
+//     borderRadius: "12px",
+//     // boxShadow: "0px 4px 15px rgba(56, 56, 56, 0.5)",
+//     overflowY: "auto",
+//     maxHeight: "600px",
+//     border: "1px solid #2A2A2A",
+//   },
+//   subheading: {
+//     marginBottom: "10px",
+//     color: "#EBEDF1",
+//   },
+//   input: {
+//     padding: "10px 12px",
+//     border: "1px solid #ccc",
+//     borderRadius: "6px",
+//     fontSize: "14px",
+//   },
+//   button: {
+//     padding: "12px",
+//     backgroundColor: "#EBEDF1",
+//     color: "#fff",
+//     fontWeight: "bold",
+//     border: "none",
+//     borderRadius: "6px",
+//     cursor: "pointer",
+//     marginTop: "10px",
+//   },
+//   planBox: {
+//     whiteSpace: "pre-wrap",
+//     wordWrap: "break-word",
+//     color: "#333",
+//     lineHeight: "1.5",
+//   },
+//   error: {
+//     color: "red",
+//     marginBottom: "15px",
+//     textAlign: "center",
+//   },
 // };
 
 // export default Bmianalyser;
 
 
 
-
-
 import React, { useEffect, useState } from "react";
 import { marked } from "marked";
+import {
+  StyledHeaderContainer,
+  StyledPageWrapper,
+  StyledHeader,
+  StyledSubHeader,
+  StyledFormContainer,
+  StyledForm,
+  StyledInput,
+  StyledButton,
+  StyledResultSection,
+  MarkdownWrapper,
+} from "../Workoutplan/StyledWorkoutPlan";
+
+import Footer from "../../Dashboard/Footer";
 
 const Bmianalyser = () => {
   const [height, setHeight] = useState("");
@@ -183,9 +425,7 @@ const Bmianalyser = () => {
         if (!res.ok) throw new Error("Failed to fetch BMI analysis");
 
         const data = await res.json();
-        const cleanAnalysis = data.analysis.replace(/\\boxed{([^}]*)}/g, "$1");
-
-        setAnalysis(cleanAnalysis);
+        setAnalysis(data.analysis);
       } catch (err) {
         setError(err.message);
       } finally {
@@ -230,147 +470,89 @@ const Bmianalyser = () => {
   }
 
   return (
-    <div style={styles.page}>
-      <h1 style={styles.heading}>AI-Powered BMI Analyzer</h1>
+    <div>
+      <StyledPageWrapper>
+        <StyledHeaderContainer>
+          <StyledHeader>AI BMI Analyzer</StyledHeader>
+          <StyledSubHeader>
+            Find out your body mass index and understand its implications. Enter your details to analyze.
+          </StyledSubHeader>
+        </StyledHeaderContainer>
 
-      {error && <p style={styles.error}>{error}</p>}
+        <StyledFormContainer>
+          <StyledForm onSubmit={generateBMI}>
+            <div style={{ display: "flex", flexDirection: "row", justifyContent: "center", alignItems: "flex-start", gap: "3%", width: "100%", marginTop: "7%" }}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="white"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                width="40"
+                height="40"
+                style={{ backgroundColor: "#3D220F", padding: "8px", borderRadius: "30%", display: "inline-block" }}
+              >
+                <path d="M12 2 C17.523 2 22 6.477 22 12 C22 17.523 17.523 22 12 22 C6.477 22 2 17.523 2 12 C2 6.477 6.477 2 12 2 Z" />
+                <path d="M12 8v4l3 2" />
+              </svg>
+              <h2 style={{ color: '#F97316', fontSize: "3.2vh", marginBottom: "2.3vh" }}>Enter Your Body Metrics</h2>
+            </div>
 
-      <div style={styles.container}>
-        {/* LEFT: Form */}
-        <form onSubmit={generateBMI} style={styles.formSection}>
-          <h2 style={styles.subheading}>Enter Your Details</h2>
-          <input
-            type="number"
-            placeholder="Height (cm)"
-            value={height}
-            onChange={(e) => setHeight(e.target.value)}
-            required
-            min="50"
-            style={styles.input}
-          />
-          <input
-            type="number"
-            placeholder="Weight (kg)"
-            value={weight}
-            onChange={(e) => setWeight(e.target.value)}
-            required
-            min="20"
-            style={styles.input}
-          />
-          <input
-            type="text"
-            placeholder="Gender"
-            value={gender}
-            onChange={(e) => setGender(e.target.value)}
-            required
-            style={styles.input}
-          />
-          <input
-            type="number"
-            placeholder="Age"
-            value={age}
-            onChange={(e) => setAge(e.target.value)}
-            required
-            min="1"
-            style={styles.input}
-          />
-          <button type="submit" disabled={loading} style={{color:"black",fontWeight:"bold",fontSize:"16px",padding:"12px",backgroundColor:"#EBEDF1",border:"none",borderRadius:"6px",cursor:"pointer",marginTop:"10px"}}>
-            {loading ? "Analyzing..." : "Generate BMI Analysis"}
-          </button>
-        </form>
+            <div style={{ display: "flex", flexDirection: "column", gap: "3vh", width: "100%", justifyContent: "center", alignItems: "center" }}>
+              <StyledInput
+                type="number"
+                placeholder="Height (cm)"
+                value={height}
+                onChange={(e) => setHeight(e.target.value)}
+                required
+              />
+              <StyledInput
+                type="number"
+                placeholder="Weight (kg)"
+                value={weight}
+                onChange={(e) => setWeight(e.target.value)}
+                required
+              />
+              <StyledInput
+                type="text"
+                placeholder="Gender"
+                value={gender}
+                onChange={(e) => setGender(e.target.value)}
+                required
+              />
+              <StyledInput
+                type="number"
+                placeholder="Age"
+                value={age}
+                onChange={(e) => setAge(e.target.value)}
+                required
+              />
+              <StyledButton type="submit" disabled={loading}>
+                {loading ? "Analyzing..." : "Generate BMI Analysis"}
+              </StyledButton>
+              {error && <p style={{ color: "red", fontSize: "0.9rem" }}>{error}</p>}
+            </div>
+          </StyledForm>
 
-        {/* RIGHT: Result Display */}
-        <div style={styles.resultSection}>
-          <h2 style={{color: "black", marginBottom: "10px"}}>
-            {analysis ? "Your BMI Analysis" : "No Analysis Available"}
-          </h2>
-          {analysis ? (
-            <div
-              style={styles.planBox}
-            
-              dangerouslySetInnerHTML={{ __html: marked.parse(analysis) }}
-            />
-          ) : (
-            <p style={{ color: "#555" }}>Generate your BMI analysis to see it here.</p>
-          )}
-        </div>
-      </div>
+          <StyledResultSection>
+            <h2 style={{ marginBottom: "10px", marginTop: "2.1%", fontSize: "3.2vh", color: "#F97316" }}>
+              {analysis ? "Your BMI Analysis" : "No Analysis Available"}
+            </h2>
+            {analysis ? (
+              <MarkdownWrapper
+                dangerouslySetInnerHTML={{ __html: marked.parse(analysis, { gfm: true }) }}
+              />
+            ) : (
+              <p style={{ color: "#555" }}>Generate your BMI report to see it here.</p>
+            )}
+          </StyledResultSection>
+        </StyledFormContainer>
+      </StyledPageWrapper>
+      <Footer />
     </div>
   );
 };
 
-
-const styles = {
-  page: {
-    fontFamily: "Segoe UI, sans-serif",
-    padding: "40px",
-    backgroundColor: "#171A26",
-    minHeight: "100vh",
-  },
-  heading: {
-    textAlign: "center",
-    marginBottom: "30px",
-    color: "#EAEAEA",
-  },
-  container: {
-    display: "flex",
-    gap: "30px",
-    flexWrap: "wrap",
-    justifyContent: "space-between",
-  },
-  formSection: {
-    flex: "1 1 300px",
-    background: "linear-gradient(to right, #7F7FA0 50%, #A8B2C5 100%)",
-    padding: "25px",
-    borderRadius: "12px",
-    // boxShadow: "0px 4px 15px rgba(56, 56, 56, 0.5)",
-    display: "flex",
-    flexDirection: "column",
-    gap: "15px",
-    border: "1px solid #2A2A2A",
-  },
-  resultSection: {
-    flex: "2 1 500px",
-    background: "linear-gradient(to right, #7F7FA0, #A8B2C5)",
-    padding: "25px",
-    borderRadius: "12px",
-    // boxShadow: "0px 4px 15px rgba(56, 56, 56, 0.5)",
-    overflowY: "auto",
-    maxHeight: "600px",
-    border: "1px solid #2A2A2A",
-  },
-  subheading: {
-    marginBottom: "10px",
-    color: "#EBEDF1",
-  },
-  input: {
-    padding: "10px 12px",
-    border: "1px solid #ccc",
-    borderRadius: "6px",
-    fontSize: "14px",
-  },
-  button: {
-    padding: "12px",
-    backgroundColor: "#EBEDF1",
-    color: "#fff",
-    fontWeight: "bold",
-    border: "none",
-    borderRadius: "6px",
-    cursor: "pointer",
-    marginTop: "10px",
-  },
-  planBox: {
-    whiteSpace: "pre-wrap",
-    wordWrap: "break-word",
-    color: "#333",
-    lineHeight: "1.5",
-  },
-  error: {
-    color: "red",
-    marginBottom: "15px",
-    textAlign: "center",
-  },
-};
-
 export default Bmianalyser;
-

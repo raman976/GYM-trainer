@@ -104,7 +104,7 @@ border: 1px solid #191919;
 export const MarkdownWrapper = styled.div`
 
   h1, h2, h3, h4 {
-    color: #1e293b;
+    color: #F97316;
     font-weight: bold;
     margin: 1rem 0 0.5rem;
   }
@@ -121,7 +121,8 @@ export const MarkdownWrapper = styled.div`
   color: #F97316;
   font-size: 1.3rem;
   font-weight: bold;
-  margin-bottom: 0.2rem; 
+  margin-bottom: 2rem; 
+  margin-top: 2rem;
 }
 
 
@@ -129,11 +130,13 @@ export const MarkdownWrapper = styled.div`
     padding-left: 1.5rem;
     margin: 0rem 0;
     font-size: 1.05rem;
+    
   }
 
   li {
     margin-bottom: 0rem;
     color: white;
+    margin:2rem 0;
   }
 
   a {
@@ -156,4 +159,3 @@ export const MarkdownWrapper = styled.div`
     font-family: monospace;
   }
 `;
-
