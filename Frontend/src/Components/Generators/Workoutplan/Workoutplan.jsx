@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { marked } from "marked";
-import { StyledHeaderContainer, StyledPageWrapper,StyledHeader ,StyledSubHeader, StyledFormContainer,StyledForm} from "./StyledWorkoutPlan";
+import { StyledHeaderContainer, StyledPageWrapper,StyledHeader ,StyledSubHeader, StyledFormContainer,StyledForm,StyledInput,StyledButton} from "./StyledWorkoutPlan";
 
 const WorkoutPlanner = () => {
   const [days, setDays] = useState("");
@@ -100,9 +100,33 @@ console.log(workoutPlan)
       </StyledHeaderContainer>
 
       <StyledFormContainer>
-        <StyledForm onSubmit={fetchWorkoutPlan} >
-          <h2 style={styles.subheading}>Customize Your Plan</h2>
-          <input
+        <StyledForm onSubmit={fetchWorkoutPlan} tabIndex={0}>
+        <div style={{display:"flex",flexDirection:"row",justifyContent:"center",alignItems:"flex-start",gap:"3%",width:"100%",marginTop:"7%"}}><svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="white"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              width="40"
+              height="40"
+              style={{
+                backgroundColor: "#3D220F",
+                padding: "8px",
+                borderRadius: "30%",
+                display: "inline-block",
+              }}
+            >
+              <path d="M14.4 14.4 9.6 9.6" />
+              <path d="M18.657 21.485a2 2 0 1 1-2.829-2.828l-1.767 1.768a2 2 0 1 1-2.829-2.829l6.364-6.364a2 2 0 1 1 2.829 2.829l-1.768 1.767a2 2 0 1 1 2.828 2.829z" />
+              <path d="m21.5 21.5-1.4-1.4" />
+              <path d="M3.9 3.9 2.5 2.5" />
+              <path d="M6.404 12.768a2 2 0 1 1-2.829-2.829l1.768-1.767a2 2 0 1 1-2.828-2.829l2.828-2.828a2 2 0 1 1 2.829 2.828l1.767-1.768a2 2 0 1 1 2.829 2.829z" />
+            </svg>
+          <h2 style={{color:'white',fontSize:"3.2vh",marginBottom:"2.3vh"}}>Customize Your Plan</h2></div>
+              <div style={{display:"flex",flexDirection:"column",gap:"3vh",width:"100%",justifyContent:"center",alignItems:"center"}}>
+          <StyledInput
             type="number"
             placeholder="Workout Days per Week"
             value={days}
@@ -110,26 +134,26 @@ console.log(workoutPlan)
             required
             min="1"
             max="7"
-            style={styles.input}
           />
-          <input
+          <StyledInput 
             type="text"
             placeholder="Goal (e.g., Muscle Gain)"
             value={goal}
             onChange={(e) => setGoal(e.target.value)}
             required
-            style={styles.input}
           />
-          <input
+          <StyledInput
             type="text"
             placeholder="Equipment (e.g., Dumbbells, Barbell)"
             value={equipment}
             onChange={(e) => setEquipment(e.target.value)}
-            style={styles.input}
           />
-          <button type="submit" disabled={loading} style={{color:"black",fontWeight:"bold",fontSize:"16px",padding:"12px",backgroundColor:"#EBEDF1",border:"none",borderRadius:"6px",cursor:"pointer",marginTop:"10px"}}>
+          <StyledButton type="submit" disabled={loading} >
             {loading ? "Generating..." : "Generate Workout Plan"}
-          </button>
+          </StyledButton>
+          <hr style={{width:"89%",height:"0.01px",color:"#404040"}} />
+
+          </div>
         </StyledForm>
         {/* RIGHT: Workout Plan Display */}
         <div style={styles.resultSection}>
