@@ -1,6 +1,6 @@
-require('dotenv').config();
+require("dotenv").config();
 const User = require("../Model/User");
-const DietPlan = require('../Model/Dietplan');
+const DietPlan = require("../Model/Dietplan");
 
 const generateDietPlan = async (req, res) => {
   try {
@@ -16,19 +16,46 @@ const generateDietPlan = async (req, res) => {
       {
         method: "POST",
         headers: {
-          "Authorization": `Bearer ${process.env.R10.trim()}`,
+          Authorization: `Bearer ${process.env.R10.trim()}`,
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          model: "deepseek/deepseek-r1-zero:free",
+          model: "meta-llama/llama-4-maverick:free",
           messages: [
             {
               role: "system",
-              content: "You are a professional fitness trainer. Generate a structured diet plan based on user input.",
+              content:
+                "You are a professional fitness trainer. Generate a structured diet plan based on user input.",
             },
             {
               role: "user",
-              content: `Create a diet plan for me, my current height is ${height} cm, my current weight is ${weight} kg, my food preference is ${preference}, and I have to achieve ${goal}. dont use the reference of previous conversation give a listed plan not so long not so short`,
+              content: `Create a 7-day personalized diet plan.
+
+Height: ${height} cm  
+Weight: ${weight} kg  
+Preference: ${preference}  
+Goal: ${goal}  
+
+Follow this format:
+
+1. Program Details:
+   - Level
+   - Goal
+   - Calories/day
+
+2. For each day (Day 1 to Day 7), include:
+   - **Breakfast**
+   - **Mid-Morning Snack**
+   - **Lunch**
+   - **Evening Snack**
+   - **Dinner**
+
+For each meal:
+- Write the **meal name in bold**
+- Next line: Quantity and short description
+
+Use compact markdown with no extra spacing.
+`,
             },
           ],
         }),
@@ -38,7 +65,7 @@ const generateDietPlan = async (req, res) => {
     console.log("API Key:", process.env.R10);
 
     const data = await response.json();
-    console.log('checking data', data);
+    console.log("checking data", data);
 
     const dietPlanMarkdown = data.choices[0].message.content;
 
@@ -68,7 +95,7 @@ const generateDietPlan = async (req, res) => {
       await user.save();
       return res.status(200).json({
         success: true,
-        message: 'Plan generated successfully',
+        message: "Plan generated successfully",
         plan: dietPlanMarkdown,
       });
     }
@@ -76,7 +103,7 @@ const generateDietPlan = async (req, res) => {
     console.log("error", error);
     return res.status(500).json({
       success: false,
-      message: 'There was a problem generating your plan, please retry',
+      message: "There was a problem generating your plan, please retry",
     });
   }
 };
@@ -87,11 +114,15 @@ const getDietPlan = async (req, res) => {
 
     const user = await User.findById(userId).populate("dietPlanId");
     if (!user) {
-      return res.status(404).json({ success: false, message: "User not found" });
+      return res
+        .status(404)
+        .json({ success: false, message: "User not found" });
     }
 
     if (!user.dietPlanId) {
-      return res.status(404).json({ success: false, message: "No diet plan found for this user" });
+      return res
+        .status(404)
+        .json({ success: false, message: "No diet plan found for this user" });
     }
 
     return res.status(200).json({
@@ -101,7 +132,9 @@ const getDietPlan = async (req, res) => {
     });
   } catch (error) {
     console.error("Error fetching diet plan:", error);
-    return res.status(500).json({ success: false, message: "Server error, please try again" });
+    return res
+      .status(500)
+      .json({ success: false, message: "Server error, please try again" });
   }
 };
 

@@ -86,33 +86,55 @@ const analyseBMI = async (req, res) => {
       return res.status(400).json({ success: false, message: "All fields are required" });
     }
 
-    const response = await fetch(
-      "https://openrouter.ai/api/v1/chat/completions",
-      {
-        method: "POST",
-        headers: {
-          "Authorization": `Bearer ${process.env.R10.trim()}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          model: "deepseek/deepseek-r1-zero:free",
-          messages: [
-            {
-              role: "system",
-              content:
-                "You are a professional fitness trainer. Given are the values of a person's height, weight, gender, and age. Give the analysis of the person's Body Mass Index and body fat percentage in no more than 60 words.",
-            },
-            {
-              role: "user",
-              content: `Give me an analysis of my body mass index and body fat percentage, my height is ${height} cm, weight is ${weight} kg, gender is ${gender}, age is ${age} years.`,
-            },
-          ],
-        }),
-      }
-    );
+    const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${process.env.R10.trim()}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        model: "meta-llama/llama-4-maverick:free",
+        messages: [
+          {
+            role: "system",
+            content:
+              "You are a professional fitness trainer. Given are the values of a person's height, weight, gender, and age. Give the analysis of the person's Body Mass Index and body fat percentage in no more than 60 words.",
+          },
+          {
+            role: "user",
+           content: `Analyze my BMI and body fat percentage based on:
+
+- Height: ${height} cm  
+- Weight: ${weight} kg  
+- Gender: ${gender}  
+- Age: ${age}
+
+Format the output in clean markdown:
+
+**Start with a 2–3 line health summary.**
+
+Use these bold headings, each on its own line (with a line break after the heading):
+- **BMI Calculation**
+- **BMI Interpretation**
+- **Estimated Body Fat Percentage**
+- **Health Recommendations**
+
+Under each heading, use bullet points:
+- One idea per bullet
+- No blank lines between bullets or headings
+
+Keep it clean and easy to style with CSS.`
+
+
+
+            ,
+          },
+        ],
+      }),
+    });
 
     const data = await response.json();
-
+    console.log("AI Response:", data);
     if (!data.choices || data.choices.length === 0 || !data.choices[0].message) {
       return res.status(500).json({
         success: false,
@@ -121,7 +143,7 @@ const analyseBMI = async (req, res) => {
     }
 
     const analysis = data.choices[0].message.content;
-
+    
     const user = await User.findById(userId);
     if (!user) {
       return res.status(404).json({ success: false, message: "User not found" });

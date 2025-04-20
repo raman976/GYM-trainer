@@ -14,7 +14,7 @@ const generateWorkoutPlan = async (req, res) => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          model: "deepseek/deepseek-r1-zero:free",
+          model: "meta-llama/llama-4-maverick:free",
           messages: [
             {
               role: "system",
@@ -23,7 +23,24 @@ const generateWorkoutPlan = async (req, res) => {
             },
             {
               role: "user",
-              content: `Create a workout plan for ${days} days for a  person aiming for ${goal}. Equipment available: ${equipment}.`,
+              content: `Create a workout plan for ${days} days for a person aiming for ${goal}. Equipment available: ${equipment}.
+
+Please follow this **markdown formatting structure**:
+
+1. Start with a short 2–3 line introductory paragraph about the workout plan.
+2. For each day, use a bold header like **Day 1**, **Day 2**, etc.
+3. Do NOT write any subheadings like "Push Exercises" or "Legs & Core" — skip that part completely.
+4. For exercises:
+   - Use a bullet point (-).
+   - On the first line, write the **exercise name in bold followed by a colon** (e.g., **Push-up**:).
+   - On the next line (separate line), write the **procedure** of how to do it and how long it should be performed (duration or sets/reps).
+   - Avoid putting the procedure or timing on the same line as the exercise name.
+5. Keep spacing **tight** — there should be **no blank lines** between the day heading and the first exercise, or between any exercises.
+
+The final output should be clean and minimal markdown so it can be styled easily with CSS.`
+
+
+,
             },
           ],
         }),
