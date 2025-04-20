@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { marked } from "marked";
-import { StyledHeaderContainer, StyledPageWrapper,StyledHeader ,StyledSubHeader, StyledFormContainer,StyledForm,StyledInput,StyledButton} from "./StyledWorkoutPlan";
+import { StyledHeaderContainer, StyledPageWrapper,StyledHeader ,StyledSubHeader, StyledFormContainer,StyledForm,StyledInput,StyledButton,StyledResultSection,MarkdownWrapper} from "./StyledWorkoutPlan";
+import { StyledFooter } from "../../Dashboard/StyledDashboard";
+import Footer from "../../Dashboard/Footer";
 
 const WorkoutPlanner = () => {
   const [days, setDays] = useState("");
@@ -91,6 +93,7 @@ const WorkoutPlanner = () => {
   
 console.log(workoutPlan)
   return (
+    <div>
     <StyledPageWrapper>
       <StyledHeaderContainer>
       <StyledHeader>AI Workout Plan Generator</StyledHeader>
@@ -100,7 +103,7 @@ console.log(workoutPlan)
       </StyledHeaderContainer>
 
       <StyledFormContainer>
-        <StyledForm onSubmit={fetchWorkoutPlan} tabIndex={0}>
+        <StyledForm onSubmit={fetchWorkoutPlan}>
         <div style={{display:"flex",flexDirection:"row",justifyContent:"center",alignItems:"flex-start",gap:"3%",width:"100%",marginTop:"7%"}}><svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -124,7 +127,7 @@ console.log(workoutPlan)
               <path d="M3.9 3.9 2.5 2.5" />
               <path d="M6.404 12.768a2 2 0 1 1-2.829-2.829l1.768-1.767a2 2 0 1 1-2.828-2.829l2.828-2.828a2 2 0 1 1 2.829 2.828l1.767-1.768a2 2 0 1 1 2.829 2.829z" />
             </svg>
-          <h2 style={{color:'white',fontSize:"3.2vh",marginBottom:"2.3vh"}}>Customize Your Plan</h2></div>
+          <h2 style={{color:'#F97316',fontSize:"3.2vh",marginBottom:"2.3vh"}}>Customize Your Plan</h2></div>
               <div style={{display:"flex",flexDirection:"column",gap:"3vh",width:"100%",justifyContent:"center",alignItems:"center"}}>
           <StyledInput
             type="number"
@@ -152,16 +155,23 @@ console.log(workoutPlan)
             {loading ? "Generating..." : "Generate Workout Plan"}
           </StyledButton>
           <hr style={{width:"89%",height:"0.01px",color:"#404040"}} />
-
+          <div style={{display:"flex",flexDirection:"column",justifyContent:"flex-start",alignItems:"flex-start",width:"100%"}}>
+            <h3 style={{color:"#E06713",marginLeft:"10%",marginBottom:"3%"}}>Features</h3>
+            <ul style={{color:"#9CA3AF",marginLeft:"14%"}}>
+              <li style={{ marginBottom: '10px' }}>Personalized workout</li>
+              <li style={{ marginBottom: '10px' }}>Equipment-based exercises</li>
+              <li style={{ marginBottom: '10px' }}>Goal-specific routines</li>
+              <li style={{ marginBottom: '10px' }}>Progressive overload focus</li>
+            </ul>
+          </div>
           </div>
         </StyledForm>
-        {/* RIGHT: Workout Plan Display */}
-        <div style={styles.resultSection}>
-          <h2 style={{color: "black", marginBottom: "10px"}}>
-            {workoutPlan ? "Your Workout Plan" : "No Workout Plan Available"}
+        <StyledResultSection>
+          <h2 style={{color: "White", marginBottom: "10px",marginTop:"2.1%",fontSize:"3.2vh",color:"#F97316"}}>
+            {workoutPlan ? "Your Personalised Plan" : "No Workout Plan Available"}
           </h2>
           {workoutPlan ? (
-            <div
+            <MarkdownWrapper
               style={styles.planBox}
               
               dangerouslySetInnerHTML={{
@@ -171,9 +181,11 @@ console.log(workoutPlan)
           ) : (
             <p style={{ color: "#555" }}>Generate a plan to see it here.</p>
           )}
-        </div>
+        </StyledResultSection>
       </StyledFormContainer>
     </StyledPageWrapper>
+    <Footer/>
+    </div>
   );
 };
 const styles = {
@@ -206,7 +218,6 @@ const styles = {
     border: "1px solid #2A2A2A",
   },
   resultSection: {
-    flex: "2 1 500px",
     background: "linear-gradient(to right, #7F7FA0, #A8B2C5)",
     padding: "25px",
     borderRadius: "12px",
@@ -238,7 +249,6 @@ const styles = {
   planBox: {
     whiteSpace: "pre-wrap",
     wordWrap: "break-word",
-    color: "#333",
     lineHeight: "1.5",
   },
   error: {
