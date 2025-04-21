@@ -4,11 +4,10 @@ const mongoose = require("mongoose");
 const app = express();
 const authRoutes = require("./Routes/Auth");
 const cors=require("cors");
-const cors = require("cors");
 
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://gym-trainer-production.up.railway.app",
+  "https://glo-pi.vercel.app",
 ];
 
 app.use(cors({
