@@ -7,7 +7,7 @@ export const exercises = [
         targetedpart: "Core",
         image: "https://i.insider.com/678f896b10c98eace913245a?width=1300&format=jpeg&auto=webp",
         video: "https://www.youtube.com/watch?v=pSHjTRCQxIw",
-        gender: "Both",
+        gender: "Male",
     },
     {
         name: "Mountain Climbers",
@@ -16,7 +16,7 @@ export const exercises = [
         targetedpart: "Core",
         image: "https://impactmagazine.ca/wp-content/uploads/2019/01/JF19/JF19-WorkoutTish-MountainClimber.jpg",
         video: "https://www.youtube.com/watch?v=nmwgirgXLYM",
-        gender: "Both",
+        gender: "Female",
     },
     {
         name: "Push-Ups",
@@ -25,7 +25,7 @@ export const exercises = [
         targetedpart: "Upper-Body",
         image: "https://cdn.shopify.com/s/files/1/0252/3155/6686/files/Push-ups.jpg?v=1726158512",
         video: "https://www.youtube.com/watch?v=_l3ySVKYVJ8",
-        gender: "Both",
+        gender: "Male",
     },
     {
         name: "Burpees",
@@ -34,7 +34,7 @@ export const exercises = [
         targetedpart: "Full-Body",
         image: "https://images.unsplash.com/photo-1574680178050-55c6a6a96e0a?auto=format&fit=crop&q=80&w=800&h=600",
         video: "https://www.youtube.com/watch?v=TU8QYVW0gDU",
-        gender: "Both",
+        gender: "Male",
     },
     {
         name: "Downward Dog",
@@ -42,8 +42,8 @@ export const exercises = [
         type: "Yoga",
         targetedpart: "Full-Body",
         image: "https://wearethecity.com/wp-content/uploads/2024/04/Downward-Facing-Dog-yoga.jpg",
-        video: "https://www.youtube.com/watch?v=0Fx8f4xZxRk",
-        gender: "Both",
+        video: "https://www.youtube.com/watch?v=w4iKQc2ebKw",
+        gender: "Female",
     },
     {
         name: "Lunges",
@@ -69,7 +69,7 @@ export const exercises = [
         type: "Yoga",
         targetedpart: "Legs",
         image: "https://thumbs.dreamstime.com/b/pretty-young-female-athlete-black-sports-outfit-doing-lunge-exercise-standing-yoga-low-warrior-pose-mat-pretty-100510761.jpg",
-        video: "https://www.youtube.com/watch?v=8lVf3zEwO4I",
+        video: "https://www.youtube.com/watch?v=NytDpa2r34g",
         gender: "Both",
     },
     {
@@ -114,7 +114,7 @@ export const exercises = [
         type: "Strength",
         targetedpart: "Core",
         image: "https://nirvana-store-assets.s3.ap-southeast-1.amazonaws.com/4_3a2aee5160.png",
-        video: "https://www.youtube.com/watch?v=K1v3d8aUou8",
+        video: "https://www.youtube.com/watch?v=NXr4Fw8q60o",
         gender: "Both",
     },
     {
@@ -123,7 +123,7 @@ export const exercises = [
         type: "Cardio",
         targetedpart: "Legs",
         image: "https://www.olyrun.com/wp-content/uploads/Why-should-you-do-high-knees-800x600.jpg",
-        video: "https://www.youtube.com/watch?v=8opcQdC-V-U",
+        video: "https://www.youtube.com/watch?v=ymdS7tM0zws",
         gender: "Both",
     },
     {
@@ -141,7 +141,7 @@ export const exercises = [
         type: "Yoga",
         targetedpart: "Back",
         image: "https://yogarove.com/wp-content/uploads/2020/02/sore-muscles-childs-pose.jpg",
-        video: "https://www.youtube.com/watch?v=3Lm3K-RYtK8",
+        video: "https://www.youtube.com/watch?v=qYvYsFrTI0U",
         gender: "Both",
     },
     {
@@ -178,7 +178,7 @@ export const exercises = [
         targetedpart: "Lower-Back",
         image: "https://bellabeat.com/wp-content/uploads/2022/02/Superman-exercise-Bellabeat-Coach.jpg",
         video: "https://www.youtube.com/watch?v=cc6UVRS7PW4",
-        gender: "Both",
+        gender: "Female",
     },
     
     
