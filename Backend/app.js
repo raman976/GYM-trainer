@@ -4,12 +4,25 @@ const mongoose = require("mongoose");
 const app = express();
 const authRoutes = require("./Routes/Auth");
 const cors=require("cors");
+const cors = require("cors");
+
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://gym-trainer-production.up.railway.app",
+];
+
 app.use(cors({
-  origin: "http://localhost:5173", 
-  methods: ["GET", "POST", "OPTIONS"], 
-  allowedHeaders: ["Content-Type", "Authorization"], 
-  credentials: true, 
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    }
+    return callback(new Error("Not allowed by CORS"));
+  },
+  methods: ["GET", "POST", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true,
 }));
+
 app.options("*", cors())
 app.use(express.json());
 app.use("/auth", authRoutes);
