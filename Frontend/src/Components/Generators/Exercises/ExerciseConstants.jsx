@@ -182,5 +182,4 @@ export const exercises = [
     },
     
     
-    // The rest of the exercises follow the same pattern...
 ];

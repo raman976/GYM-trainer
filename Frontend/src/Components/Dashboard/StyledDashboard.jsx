@@ -241,7 +241,7 @@ export const StyledFooterText = styled.p`
     color: #C6961E;
     margin-bottom: 1rem;
   }
-  p{
+  a{
     color: #9FA2A6;
     font-size: 1.1rem;
   }

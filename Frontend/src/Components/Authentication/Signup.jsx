@@ -28,7 +28,7 @@ const Signup = () => {
       phone,
     };
     console.log(data);
-    fetch("http://localhost:3000/auth/signup", {
+    fetch("https://gym-trainer-production.up.railway.app/auth/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

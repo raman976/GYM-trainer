@@ -15,9 +15,10 @@ const Footer = () => {
         </StyledFooterText>
         <StyledFooterText>
           <h2>Follow us</h2>
-          <p>Facebook</p>
-          <p>Twitter</p>
-          <p>Instagram</p>
+          <a href="https://www.linkedin.com/in/raman-pandey-872268333/" style={{textDecoration:"none"}}>Linkedin</a>
+          <br />
+          <a href='https://github.com/raman976' style={{textDecoration:"none"}}>Github</a>
+          
         </StyledFooterText>
         <StyledFooterText>
           <h2>Join Our Newsletter</h2>
