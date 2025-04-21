@@ -25,7 +25,7 @@ display: flex;
 justify-content: center;
 margin-top:0.9%;
 position: sticky;
-width:60.3%;
+width:66%;
 left: 0;
 right: 0;
 z-index: 9;

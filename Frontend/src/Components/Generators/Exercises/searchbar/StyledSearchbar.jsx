@@ -23,7 +23,7 @@ border-radius: 10px;
 
 export const StyledWrapper=styled.div`
 display: flex;
-width: 30%;
+width: 32%;
 align-items: center;
 justify-content: flex-start;
 flex-direction: row;

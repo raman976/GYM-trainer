@@ -34,6 +34,7 @@ const Mainpage = () => {
   });
 
   return (
+    <div>
     <div
       style={{
         backgroundColor: "black",
@@ -43,14 +44,14 @@ const Mainpage = () => {
       }}
     >
       <StyledPageWrapper>
-        <h1 style={{ color: "#F97316", fontSize: "5vh" }}>Exercise Library</h1>
+        <h1 style={{ color: "#F97316", fontSize: "5vh",marginBottom:"1.39vh"}}>Exercise Library</h1>
         <div
           style={{
             display: "flex",
             justifyContent: "flex-start",
             alignItems: "center",
             width: "100%",
-            gap: "3.5%",
+            gap: "2.1%",
             flexDirection: "row",
           }}
         >
@@ -77,6 +78,8 @@ const Mainpage = () => {
           onClose={() => setSelectedExercise(null)}
         />
       </StyledPageWrapper>
+    </div>
+    <Footer />
     </div>
   );
 };
