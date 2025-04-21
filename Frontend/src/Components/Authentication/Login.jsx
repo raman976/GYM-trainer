@@ -1,5 +1,5 @@
 import React from "react";
-import logo2 from "../../ASSETS/finallogo.png";
+import logo2 from "../../assets/final.png";
 import { BigContainer, FormContainer, ImageContainer2, PageContainer, StyledButton, StyledInputField, StyledSpan, StyledText } from "./Form.Styled";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";

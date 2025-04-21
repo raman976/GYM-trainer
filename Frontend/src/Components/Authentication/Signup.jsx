@@ -1,5 +1,5 @@
 import React from "react";
-import logo2 from "../../ASSETS/finallogo.png";
+import logo2 from "../../assets/final.png";
 import { useState } from "react";
 import {
   BigContainer,

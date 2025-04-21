@@ -1,5 +1,5 @@
 import React from 'react'
-import logo from '../../assets/finallogo.png'
+import logo from '../../assets/final.png'
 import { StyledDiv, StyledPara, StyledHeader, StyledHeaderWrapper } from './StyledDashboard'
 
 const Header = () => {
