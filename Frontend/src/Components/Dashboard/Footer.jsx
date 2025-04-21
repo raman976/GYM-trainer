@@ -29,7 +29,7 @@ const Footer = () => {
       </StyledFooterContent>
       <div style={{height:"0.01vh",width:"96%",background:"white",margin:"auto"}}></div>
       <StyledFooterBottom>
-        <p>&copy; 2025 Fitness App. All rights reserved.</p>
+        <p>&copy; 2025 Glo. All rights reserved.</p>
         <p>Terms of Service | Privacy Policy</p>
       </StyledFooterBottom>
      
