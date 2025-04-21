@@ -7,7 +7,7 @@ const Header = () => {
   
     <img src={logo} style={{height:"7%",width:"4%",marginLeft:"0%",marginTop:"0%"}}></img>
     <StyledDiv>
-        <StyledHeader>Welcome back <span>User</span></StyledHeader>
+        <StyledHeader>Welcome back </StyledHeader>
         <StyledPara>Ready to achieve your fitness goals today?</StyledPara>
     </StyledDiv>
     </StyledHeaderWrapper>
