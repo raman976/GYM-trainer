@@ -34,7 +34,7 @@ To get started with Glo, follow these steps:
 1. **Clone the repository:**
     ```
     git clone https://github.com/raman976/GYM-trainer.git
-    cd glo
+    cd GYM-trainer
     ```
 
 2. **Install backend dependencies:**
