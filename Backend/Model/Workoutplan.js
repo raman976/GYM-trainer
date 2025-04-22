@@ -1,6 +1,6 @@
 const mongoose=require('mongoose')
 const workoutPlannerSchema = new mongoose.Schema({
-    userId: { type: mongoose.Schema.Types.ObjectId, ref: "User" }, // 👈 Add this
+    userId: { type: mongoose.Schema.Types.ObjectId, ref: "User" }, 
     days: { type: Number, required: true },
     goal: { type: String, required: true },
     equipment: { type: [String], required: true },
