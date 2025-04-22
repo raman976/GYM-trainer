@@ -19,7 +19,14 @@ const Signup = () => {
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
   const [phone, setphone] = useState("");
+  const [isloading, setisloading] = useState(false);
   function handleclick(e) {
+    setisloading(true);
+    if (!name || !email || !password || !phone) {
+      alert("Please fill all the fields");
+      setisloading(false);
+      return;
+    }
     e.preventDefault();
     const data = {
       name,
@@ -40,6 +47,7 @@ const Signup = () => {
         console.log(data);
         if (data.success) {
           navigate("/login");
+          setisloading(false);
         }
       });
   }
@@ -72,7 +80,7 @@ const Signup = () => {
             onChange={(e) => setphone(e.target.value)}
           />
           <StyledButton type="submit">
-            SIGNUP 
+            {isloading ? "Loading..." : "Sign Up"} 
           </StyledButton>
           <StyledText>
             Already have an account?{" "}

@@ -8,7 +8,14 @@ const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isloading, setisloading] = useState(false);
   function handleSubmit(e) {
+    setisloading(true);
+    if (!email || !password) {
+      alert("Please fill all the fields");
+      setisloading(false);
+      return;
+    }
     e.preventDefault();
     const data = {
       email,
@@ -28,6 +35,7 @@ const Login = () => {
         console.log(data);
         if (data.token) {
          console.log("Login successful");
+         setisloading(false);
          localStorage.setItem("token", data.token);
           navigate("/dashboard");
         } else {
@@ -54,7 +62,7 @@ const Login = () => {
         placeholder="enter your password"
         onChange={(e) => setPassword(e.target.value)}
       />
-      <StyledButton type="submit">LOGIN</StyledButton>
+      <StyledButton type="submit">{isloading?"Loading...":"Login"}</StyledButton>
       <StyledText>
         Don't have an account? <Link to="/signup"><StyledSpan>Click to Signup</StyledSpan></Link>
       </StyledText>
