@@ -5,6 +5,7 @@ import {
   StyledDashboardOuterWrapper,
   StyledButton,
 } from "./StyledDashboard";
+import { Link } from "react-router-dom";
 
 const Features = () => {
   return (
@@ -18,6 +19,7 @@ const Features = () => {
             AI Fitness Tools
           </h2>
           <StyledDashboardInnerWrapper>
+          <Link to="/dashboard/workoutplan" style={{ textDecoration: "none" ,color:"inherit",display: "contents",}}>
             <StyledDashboardCard>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -51,6 +53,8 @@ const Features = () => {
                 Generate Workout
               </StyledButton>
             </StyledDashboardCard>
+            </Link>
+            <Link to="/dashboard/dietplanner" style={{ textDecoration: "none" ,color:"inherit",display: "contents"}}>
             <StyledDashboardCard>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -83,6 +87,8 @@ const Features = () => {
                 Plan Your Diet
               </StyledButton>
             </StyledDashboardCard>
+            </Link>
+            <Link to="/dashboard/dietplanner" style={{ textDecoration: "none" ,color:"inherit",display: "contents"}}>
             <StyledDashboardCard>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -114,6 +120,8 @@ const Features = () => {
                 Analyze BMI
               </StyledButton>
             </StyledDashboardCard>
+            </Link>
+            <Link to="/dashboard/exercise" style={{ textDecoration: "none" ,color:"inherit",display: "contents"}}>
             <StyledDashboardCard>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -143,6 +151,7 @@ const Features = () => {
                 Explore Library{" "}
               </StyledButton>
             </StyledDashboardCard>
+            </Link>
           </StyledDashboardInnerWrapper>
         </StyledDashboardOuterWrapper>
       </section>
