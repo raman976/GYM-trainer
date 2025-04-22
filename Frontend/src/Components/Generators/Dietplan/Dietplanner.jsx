@@ -109,7 +109,7 @@ const DietPlanner = () => {
         <StyledFormContainer>
           <StyledForm onSubmit={fetchDietPlan}>
             <div style={{ display: "flex", flexDirection: "row", justifyContent: "center", alignItems: "flex-start", gap: "3%", width: "100%", marginTop: "7%" }}>
-              <svg
+            <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill="none"
@@ -120,14 +120,16 @@ const DietPlanner = () => {
                 width="40"
                 height="40"
                 style={{
-                  backgroundColor: "#3D220F",
+                  backgroundColor: "#372C11",
                   padding: "8px",
-                  borderRadius: "30%",
+                  borderRadius: "50%",
                   display: "inline-block",
                 }}
               >
-                <path d="M12 2 C17.523 2 22 6.477 22 12 C22 17.523 17.523 22 12 22 C6.477 22 2 17.523 2 12 C2 6.477 6.477 2 12 2 Z" />
-                <path d="M12 8v4l3 2" />
+                <path d="m16 2-2.3 2.3a3 3 0 0 0 0 4.2l1.8 1.8a3 3 0 0 0 4.2 0L22 8" />
+                <path d="M15 15 3.3 3.3a4.2 4.2 0 0 0 0 6l7.3 7.3c.7.7 2 .7 2.8 0L15 15Zm0 0 7 7" />
+                <path d="m2.1 21.8 6.4-6.3" />
+                <path d="m19 5-7 7" />
               </svg>
               <h2 style={{ color: '#F97316', fontSize: "3.2vh", marginBottom: "2.3vh" }}>Customize Your Plan</h2>
             </div>

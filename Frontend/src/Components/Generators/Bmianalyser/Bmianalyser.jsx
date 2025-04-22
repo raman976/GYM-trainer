@@ -104,21 +104,27 @@ const Bmianalyser = () => {
         <StyledFormContainer>
           <StyledForm onSubmit={generateBMI}>
             <div style={{ display: "flex", flexDirection: "row", justifyContent: "center", alignItems: "flex-start", gap: "3%", width: "100%", marginTop: "7%" }}>
-              <svg
+            <svg
                 xmlns="http://www.w3.org/2000/svg"
+                width="40"
+                height="40"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="white"
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                width="40"
-                height="40"
-                style={{ backgroundColor: "#3D220F", padding: "8px", borderRadius: "30%", display: "inline-block" }}
+                style={{
+                  backgroundColor: "#11331E",
+                  padding: "8px",
+                  borderRadius: "50%",
+                  display: "inline-block",
+                }}
               >
-                <path d="M12 2 C17.523 2 22 6.477 22 12 C22 17.523 17.523 22 12 22 C6.477 22 2 17.523 2 12 C2 6.477 6.477 2 12 2 Z" />
-                <path d="M12 8v4l3 2" />
+                <rect width="18" height="18" x="3" y="3" rx="2"></rect>
+                <path d="M17 12h-2l-2 5-2-10-2 5H7"></path>
               </svg>
+
               <h2 style={{ color: '#F97316', fontSize: "3.2vh", marginBottom: "2.3vh" }}>Enter Your Body Metrics</h2>
             </div>
 
