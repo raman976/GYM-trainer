@@ -10,6 +10,7 @@ import {
   StyledInputField,
   StyledSpan,
   StyledText,
+  StyledLink
 } from "./Form.Styled";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -84,9 +85,9 @@ const Signup = () => {
           </StyledButton>
           <StyledText>
             Already have an account?{" "}
-            <Link to="/login">
+            <StyledLink to="/login">
               <StyledSpan>Login</StyledSpan>
-            </Link>
+            </StyledLink>
           </StyledText>
         </FormContainer>
       </PageContainer>

@@ -1,8 +1,7 @@
 import React from "react";
 import logo2 from "../../assets/final.png";
-import { BigContainer, FormContainer, ImageContainer2, PageContainer, StyledButton, StyledInputField, StyledSpan, StyledText } from "./Form.Styled";
+import { BigContainer, FormContainer, ImageContainer2, PageContainer, StyledButton, StyledInputField, StyledSpan, StyledText,StyledLink } from "./Form.Styled";
 import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
 import { useState } from "react";
 const Login = () => {
   const navigate = useNavigate();
@@ -64,7 +63,7 @@ const Login = () => {
       />
       <StyledButton type="submit">{isloading?"Loading...":"Login"}</StyledButton>
       <StyledText>
-        Don't have an account? <Link to="/signup"><StyledSpan>Click to Signup</StyledSpan></Link>
+        Don't have an account? <StyledLink to="/signup"><StyledSpan>Click to Signup</StyledSpan></StyledLink>
       </StyledText>
     </FormContainer>
     </PageContainer>

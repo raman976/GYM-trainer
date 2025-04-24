@@ -1,5 +1,9 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
+
+export const StyledLink = styled(Link)`
+  text-decoration: none;`
 export const BigContainer = styled.div`
   background: #000000;
   width: 100vw;
@@ -29,16 +33,16 @@ export const FormContainer = styled.form`
   width: 30vw;
   background: #171717;
 `;
-export const ImageContainer1 = styled.div`
-  width: 35vw;
-  height: 70vh;
-  background: url("https://images.pexels.com/photos/841130/pexels-photo-841130.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")
-    no-repeat center center/cover;
-`;
 export const ImageContainer2 = styled.div`
   width: 35vw;
   height: 70vh;
-  background: url("https://e0.pxfuel.com/wallpapers/777/418/desktop-wallpaper-womens-fitness-female-fitness.jpg")
+  background: url("https://hips.hearstapps.com/hmg-prod/images/man-doing-arm-workout-with-dumbbell-at-gym-royalty-free-image-1665415841.jpg")
+    no-repeat center center/cover;
+`;
+export const ImageContainer1 = styled.div`
+  width: 35vw;
+  height: 70vh;
+  background: url("https://www.shape.com/thmb/eRwJgRaiYmLPm3svqnPOPoblmUY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Yoga-For-Abs-GettyImages-1325708886-2000-9ec8e03309314a299c311248b0b6c8f3.jpg")
     no-repeat center center/cover;
   background-size: cover;
 `;
@@ -86,6 +90,10 @@ export const StyledText = styled.p`
   margin-top: 6%;
   color: white;
   text-decoration: none;
+  Link{
+    
+    text-decoration: none;
+  }
 `;
 export const StyledSpan = styled.span`
   text-decoration: none;
