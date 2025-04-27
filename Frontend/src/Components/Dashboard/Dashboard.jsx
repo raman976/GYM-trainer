@@ -4,6 +4,7 @@ import Footer from "./Footer";
 import Features from "./Features";
 import Header from "./Header";
 import QuoteCard from "./QuoteCard";
+import Carousel from "./Carousel";
 
 const Dashboard = () => {
   return (
@@ -14,6 +15,7 @@ const Dashboard = () => {
       <HeroSection />
       <QuoteCard/>
       <Features/>
+      <Carousel/>
       <Footer />
     </div>
   );

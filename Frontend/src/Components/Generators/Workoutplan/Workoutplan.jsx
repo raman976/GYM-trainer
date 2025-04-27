@@ -91,7 +91,7 @@ const WorkoutPlanner = () => {
   
 console.log(workoutPlan)
   return (
-    <div>
+    <div style={{background:"black"}}>
     <StyledPageWrapper>
       <StyledHeaderContainer>
       <StyledHeader>AI Workout Plan Generator</StyledHeader>

@@ -1,11 +1,14 @@
 import styled from "styled-components";
 
+
+
 export const StyledPageWrapper = styled.div`
   background: black;
   margin: 0;
   padding: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 10%;
   display: flex;
   justify-content: flex-start;
   align-items:center;

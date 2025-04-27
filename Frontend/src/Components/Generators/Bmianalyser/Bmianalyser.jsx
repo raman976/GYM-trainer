@@ -92,7 +92,7 @@ const Bmianalyser = () => {
   }
 
   return (
-    <div>
+    <div style={{background:"black"}}>
       <StyledPageWrapper>
         <StyledHeaderContainer>
           <StyledHeader>AI BMI Analyzer</StyledHeader>

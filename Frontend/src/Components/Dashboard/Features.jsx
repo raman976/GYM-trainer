@@ -9,13 +9,13 @@ import { Link } from "react-router-dom";
 
 const Features = () => {
   return (
-    <div style={{ display: "flex", justifyContent: "center" }}>
+    <div style={{ display: "flex", justifyContent: "center",marginBottom:"0%" }}>
       <section
         id="features"
         style={{ display: "flex", justifyContent: "center", width: "100%" }}
       >
         <StyledDashboardOuterWrapper>
-          <h2 style={{ color: "white", fontWeight: "bold" }}>
+          <h2 style={{fontWeight: "bold" ,marginTop:"7%",fontSize:"2.5rem",color:"orange",marginBottom:"1%"}}>
             AI Fitness Tools
           </h2>
           <StyledDashboardInnerWrapper>
@@ -88,7 +88,7 @@ const Features = () => {
               </StyledButton>
             </StyledDashboardCard>
             </Link>
-            <Link to="/dashboard/dietplanner" style={{ textDecoration: "none" ,color:"inherit",display: "contents"}}>
+            <Link to="/dashboard/bmianalyser" style={{ textDecoration: "none" ,color:"inherit",display: "contents"}}>
             <StyledDashboardCard>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
