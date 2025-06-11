@@ -21,7 +21,7 @@ const Login = () => {
       password,
     };
     console.log(data);
-    fetch ("https://gym-trainer-production.up.railway.app/auth/login", {
+    fetch ("https://gym-trainer-dbh0.onrender.com/auth/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
