@@ -35,7 +35,7 @@ const Bmianalyser = () => {
 
       setLoading(true);
       try {
-        const res = await fetch("https://gym-trainer-production.up.railway.app/analyse/get", {
+        const res = await fetch("https://gym-trainer-dbh0.onrender.com/analyse/get", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -70,7 +70,7 @@ const Bmianalyser = () => {
     }
 
     try {
-      const res = await fetch("https://gym-trainer-production.up.railway.app/analyse/generate", {
+      const res = await fetch("https://gym-trainer-dbh0.onrender.com/analyse/generate", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
