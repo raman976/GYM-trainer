@@ -23,7 +23,7 @@ const WorkoutPlanner = () => {
 
       setLoading(true);
       try {
-        const response = await fetch("https://gym-trainer-production.up.railway.app/workout/plan", {
+        const response = await fetch("https://gym-trainer-dbh0.onrender.com/workout/plan", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -61,7 +61,7 @@ const WorkoutPlanner = () => {
     }
 
     try {
-      const response = await fetch("https://gym-trainer-production.up.railway.app/workout/generate", {
+      const response = await fetch("https://gym-trainer-dbh0.onrender.com/workout/generate", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
