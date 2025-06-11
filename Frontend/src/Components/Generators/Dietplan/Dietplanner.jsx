@@ -35,7 +35,7 @@ const DietPlanner = () => {
 
       setLoading(true);
       try {
-        const response = await fetch("https://gym-trainer-production.up.railway.app/dietplan/plan", {
+        const response = await fetch("https://gym-trainer-dbh0.onrender.com/dietplan/plan", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -72,7 +72,7 @@ const DietPlanner = () => {
     }
 
     try {
-      const response = await fetch("https://gym-trainer-production.up.railway.app/dietplan/generate", {
+      const response = await fetch("https://gym-trainer-dbh0.onrender.com/dietplan/generate", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
