@@ -36,7 +36,7 @@ const Signup = () => {
       phone,
     };
     console.log(data);
-    fetch("https://gym-trainer-production.up.railway.app/auth/signup", {
+    fetch("https://gym-trainer-dbh0.onrender.com/auth/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
