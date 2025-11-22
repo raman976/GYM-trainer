@@ -18,7 +18,7 @@ const analyseBMI = async (req, res) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        model: "meta-llama/llama-4-maverick:free",
+        model: "x-ai/grok-4.1-fast:free",
         messages: [
           {
             role: "system",
